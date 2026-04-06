@@ -18,7 +18,7 @@ export const kompally = {
     experience: '14+',
     successRate: '99%',
     bio: 'Dr. Priya Sharma is one of India\'s leading laparoscopic surgeons, with 14 years of expertise in advanced minimally invasive techniques. Her focus on reducing patient trauma and accelerating recovery has made Kompally the go-to center for laparoscopic care in North Hyderabad.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🔭', title: 'Laparoscopic Surgery', description: '4K HD laparoscopic procedures for GI, urological, and gynecological conditions.' },

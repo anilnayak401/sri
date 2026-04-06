@@ -6,6 +6,7 @@ import { StickyNavbar } from '@/components/layout/StickyNavbar'
 import { BranchSideNav } from '@/components/layout/BranchSideNav'
 import { Footer } from '@/components/layout/Footer'
 import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
+import { assetUrl } from '@/lib/assetUrl'
 
 const COLORS = {
   navy: '#0B1F3A',
@@ -21,7 +22,7 @@ const doctor = {
   successRate: '99%',
   experience: '15+',
   bio: "As a multidimensional Joint Replacement Surgeon, Dr. Dadi has pioneered the integration of robotic technology in India. His clinical precision and human-centric approach have positioned him to thousands.",
-  image: '/doctors/akhil-dadi.png',
+  image: assetUrl('doctors/akhil-dadi.png'),
 }
 
 const surgicalSpecialties = [
@@ -37,7 +38,7 @@ const surgicalSpecialties = [
 ]
 
 const expertDoctors = [
-  { name: 'Dr. Akhil Dadi', role: 'Orthopaedic Surgeon', tag: 'CHAIRMAN', image: '/doctors/akhil-dadi.png' },
+  { name: 'Dr. Akhil Dadi', role: 'Orthopaedic Surgeon', tag: 'CHAIRMAN', image: assetUrl('doctors/akhil-dadi.png') },
 ]
 
 export function DoctorsPage() {

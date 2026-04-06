@@ -18,7 +18,7 @@ export const ecil = {
     experience: '15+',
     successRate: '99%',
     bio: 'Pioneer in robotic surgery and the visionary behind Srikara\'s expansion. Dr. Dadi ensures every branch, including ECIL, maintains the highest standards of clinical excellence and compassionate care.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '👶', title: 'Pediatrics', description: 'Comprehensive child healthcare from neonatal care to adolescent medicine.' },

@@ -18,7 +18,7 @@ export const miyapur = {
     experience: '16+',
     successRate: '99.5%',
     bio: 'Dr. Kavitha Nair is a pioneer in interventional radiology with 16 years of experience. Her expertise in AI-assisted imaging has reduced diagnostic errors by 40% at the Miyapur center, setting a new benchmark for diagnostic excellence.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🧲', title: '3T MRI', description: 'Ultra-high-field MRI for brain, spine, cardiac, and musculoskeletal imaging.' },

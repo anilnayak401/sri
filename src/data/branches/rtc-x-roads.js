@@ -19,7 +19,7 @@ export const rtcXRoads = {
     experience: '20+',
     successRate: '98%',
     bio: 'With two decades of surgical experience, Dr. Ramesh Babu has pioneered minimally invasive oncological surgery. His multidisciplinary approach to cancer care has significantly improved survival rates and quality of life for patients.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🎗️', title: 'Surgical Oncology', description: 'Curative and palliative cancer surgeries with multidisciplinary tumor board support.' },

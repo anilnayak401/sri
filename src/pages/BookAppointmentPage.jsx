@@ -11,6 +11,7 @@ import { StickyNavbar } from '@/components/layout/StickyNavbar'
 import { Footer } from '@/components/layout/Footer'
 import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
 import { branches } from '@/data/branches'
+import { assetUrl } from '@/lib/assetUrl'
 
 // Professional Luxury Tokens
 const COLORS = {
@@ -45,7 +46,7 @@ export function BookAppointmentPage() {
     const mainDoc = {
       name: 'Dr. Akhil Dadi',
       role: 'Chief Surgeon',
-      image: '/doctors/akhil-dadi.png',
+      image: assetUrl('doctors/akhil-dadi.png'),
       experience: '15+ Years',
       skills: ['Robotic Surgery', 'Joint Replacement'],
       rating: 4.9

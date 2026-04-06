@@ -5,19 +5,22 @@ import { useNavigate } from 'react-router-dom'
  * VideoHero
  * ─────────────────────────────────────────────────────────────
  * Desktop (≥ 768px):
- *   • Plays /hero.mp4 as a muted, looping, autoplaying background video
- *   • Shows /hero-poster.jpg while the video loads
+ *   • Plays hero.mp4 as a muted, looping, autoplaying background video
+ *   • Shows hero-poster.jpg while the video loads
  *   • Falls back to poster image if autoplay is blocked
  *
  * Mobile (< 768px):
  *   • Video element is not rendered at all (saves bandwidth)
  *   • Shows branch.heroImage or the poster as a static background
  *
- * Layout and overlays are identical on both — no visual difference.
+ * Asset paths use import.meta.env.BASE_URL so they resolve correctly
+ * on both localhost (/hero.mp4) and GitHub Pages (/sri/hero.mp4).
  */
 
-const VIDEO_SRC    = '/hero.mp4'
-const POSTER_IMAGE = '/hero-poster.jpg'
+// BASE_URL = '/'  locally,  '/sri/'  on GitHub Pages
+const BASE      = import.meta.env.BASE_URL
+const VIDEO_SRC    = `${BASE}hero.mp4`
+const POSTER_IMAGE = `${BASE}hero-poster.jpg`
 
 export function VideoHero({ branch, children }) {
   const navigate   = useNavigate()

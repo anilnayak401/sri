@@ -8,6 +8,7 @@ import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
 import { AppointmentWidget } from '@/components/sections/AppointmentWidget'
 import { VideoHero } from '@/components/sections/VideoHero'
 import { AlphabetDiseaseSearch } from '@/components/sections/AlphabetDiseaseSearch'
+import { assetUrl } from '@/lib/assetUrl'
 
 export function BranchLandingPage({ branch }) {
   const navigate = useNavigate()
@@ -127,7 +128,7 @@ export function BranchLandingPage({ branch }) {
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-br from-[#C2185B] to-[#8E0038] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
                     <img
-                      src={branch.doctor.image}
+                      src={assetUrl(branch.doctor.image)}
                       alt={branch.doctor.name}
                       className="relative z-10 w-full aspect-[3/4] object-cover object-top rounded-2xl transition-all duration-500 shadow-xl"
                       loading="lazy"

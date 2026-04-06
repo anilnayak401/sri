@@ -18,7 +18,7 @@ export const lbNagar = {
     experience: '15+',
     successRate: '99%',
     bio: 'Pioneer in robotic surgery with over 15 years of experience. Dr. Dadi has performed more than 27,000 successful procedures, specializing in minimally invasive techniques that reduce recovery time and improve patient outcomes.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🤖', title: 'Robotic Orthopaedics', description: 'NAVIO-assisted knee and hip replacements with precision alignment and faster recovery.' },

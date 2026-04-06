@@ -18,7 +18,7 @@ export const lakdikapul = {
     experience: '18+',
     successRate: '98%',
     bio: 'Dr. Suresh Reddy is a nationally recognized neurosurgeon with 18 years of expertise in complex spine surgeries and brain tumor resections. His patient-first philosophy and precision-driven approach have transformed outcomes for thousands across Telangana.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🧠', title: 'Neurosurgery', description: 'Brain tumor, epilepsy, and vascular neurosurgery with intraoperative imaging.' },

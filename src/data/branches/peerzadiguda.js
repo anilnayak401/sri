@@ -20,7 +20,7 @@ export const peerzadiguda = {
     experience: '15+',
     successRate: '99%',
     bio: 'Under the visionary leadership of Dr. Akhil Dadi, Srikara Hospitals has set benchmarks in surgical innovation. His commitment to bringing the same level of robotic expertise to Peerzadiguda ensures that patients receive precision-driven outcomes from one of the most trusted names in Orthopedics.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   accessibleCareImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNyy4liwb1yNO6ySjCQ0B_tOc6U-1WSyfGI5FxQ5xPeqkp54hB7-51ex_W4oBrs32IyPrfyruE4mOrF8RxViNtbKEex8XjkVYbOX8dbKzgp1PDUQtKHvzXXz8ZzHmJqbddap-JBcxcsieMy9iC8_UxXT1V_iKJLdoekdef7rQiYwTiqdAWZEYVpBQ5ifRR1OMYW0E0AY3N0bK8z46jyWMPh150-b5yCx0es87h4z_LoRCP2kIQ4lGU4nsj69UFJLtsutt3IXadXEs',
   accessibleCareHighlights: [

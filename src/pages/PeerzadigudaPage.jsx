@@ -8,6 +8,7 @@ import { AppointmentWidget } from '@/components/sections/AppointmentWidget'
 import { peerzadiguda as branch } from '@/data/branches/peerzadiguda'
 import { VideoHero } from '@/components/sections/VideoHero'
 import { AlphabetDiseaseSearch } from '@/components/sections/AlphabetDiseaseSearch'
+import { assetUrl } from '@/lib/assetUrl'
 
 /* ── icon map for specialty cards ── */
 const iconMap = {
@@ -148,7 +149,7 @@ export function PeerzadigudaPage() {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-br from-[#C2185B] to-[#8E0038] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
                 <img
-                  src={branch.doctor.image}
+                  src={assetUrl(branch.doctor.image)}
                   alt={branch.doctor.name}
                   className="relative z-10 w-full aspect-[3/4] object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
                 />

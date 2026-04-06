@@ -18,7 +18,7 @@ export const vijayawada = {
     experience: '12+',
     successRate: '99%',
     bio: 'Dr. Venkat Rao trained under Dr. Akhil Dadi and brought robotic orthopaedic surgery to Andhra Pradesh. His expertise in NAVIO-assisted knee and hip replacements has given thousands of patients in the Krishna district a new lease on life.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🤖', title: 'NAVIO Robotics', description: 'Sub-millimeter precision robotic knee and hip replacement surgery.' },

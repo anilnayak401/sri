@@ -18,7 +18,7 @@ export const rajahmundry = {
     experience: '10+',
     successRate: '98.5%',
     bio: 'Dr. Srinivas Murthy has been instrumental in establishing Rajahmundry as a robotic surgery destination. His vision to eliminate the need for patients to travel to Hyderabad for advanced care has transformed healthcare access across the Godavari districts.',
-    image: '/doctors/akhil-dadi.png',
+    image: 'doctors/akhil-dadi.png',
   },
   specialtiesCards: [
     { icon: '🤖', title: 'Robotic Surgery', description: 'Minimally invasive robotic procedures for orthopaedic and general surgery.' },
