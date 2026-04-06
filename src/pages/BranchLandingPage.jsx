@@ -43,7 +43,7 @@ export function BranchLandingPage({ branch }) {
               <div className="hero-btn-wrap flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                 <button
                   onClick={() => navigate('/book')}
-                  className="w-full sm:w-auto min-h-[48px] bg-[#C2185B] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg hover:bg-[#0F4C5C] transition-all duration-300 text-sm md:text-base"
+                  className="w-full sm:w-auto min-h-[48px] bg-[#8B1A4A] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg hover:bg-[#2D3A4A] transition-all duration-300 text-sm md:text-base"
                 >
                   Book an Appointment
                 </button>
@@ -62,19 +62,19 @@ export function BranchLandingPage({ branch }) {
             <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                 <div>
-                  <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] tracking-tight uppercase mb-3">
+                  <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] tracking-tight uppercase mb-3">
                     Centers of Excellence
                   </h2>
-                  <div className="w-12 h-1 bg-[#C2185B]" />
+                  <div className="w-12 h-1 bg-[#8B1A4A]" />
                 </div>
-                <span className="text-[#C2185B] font-black text-6xl opacity-10 hidden md:block">01</span>
+                <span className="text-[#8B1A4A] font-black text-6xl opacity-10 hidden md:block">01</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {branch.specialtiesCards?.map((item, i) => (
                   <div key={i} className="group bg-surface-container-lowest p-7 rounded-2xl relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-ambient border border-outline-variant/10">
-                    <div className="absolute left-0 top-0 w-1 h-0 bg-[#C2185B] group-hover:h-full transition-all duration-300 ease-in-out" />
+                    <div className="absolute left-0 top-0 w-1 h-0 bg-[#8B1A4A] group-hover:h-full transition-all duration-300 ease-in-out" />
                     <div className="text-3xl mb-5">{item.icon}</div>
-                    <h3 className="font-headline font-bold text-base text-[#C2185B] mb-2">{item.title}</h3>
+                    <h3 className="font-headline font-bold text-base text-[#8B1A4A] mb-2">{item.title}</h3>
                     <p className="text-sm text-[#4A4A4A] leading-relaxed">{item.description}</p>
                   </div>
                 ))}
@@ -87,22 +87,22 @@ export function BranchLandingPage({ branch }) {
             <section className="py-20 bg-surface-container-low px-8">
               <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                  <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-[#C2185B] tracking-tight mb-8">
+                  <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-[#8B1A4A] tracking-tight mb-8">
                     The {branch.title}<br />
-                    <span className="text-[#0F4C5C] italic">Advantage.</span>
+                    <span className="text-[#2D3A4A] italic">Advantage.</span>
                   </h2>
                   <p className="text-lg text-[#4A4A4A] mb-8 leading-relaxed">{branch.description}</p>
                   <ul className="space-y-4 mb-10">
                     {branch.highlights.map((item, i) => (
                       <li key={i} className="flex items-start gap-4 text-on-surface font-semibold">
-                        <span className="text-[#0F4C5C] text-xl flex-shrink-0 mt-0.5">✅</span>
+                        <span className="text-[#2D3A4A] text-xl flex-shrink-0 mt-0.5">✅</span>
                         {item}
                       </li>
                     ))}
                   </ul>
                   <button
                     onClick={() => navigate('/book')}
-                    className="bg-[#0F4C5C] text-white px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#0F4C5C]/90 transition-all"
+                    className="bg-[#2D3A4A] text-white px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#2D3A4A]/90 transition-all"
                   >
                     Book a Consultation
                   </button>
@@ -112,7 +112,7 @@ export function BranchLandingPage({ branch }) {
                     <img src={branch.heroImage} alt={branch.title} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="absolute -bottom-4 -right-4 bg-surface/80 backdrop-blur-[20px] p-6 rounded-2xl border border-white/30 max-w-[240px] shadow-xl">
-                    <p className="font-bold text-[#C2185B] uppercase text-xs tracking-tighter mb-1">📍 {branch.title}</p>
+                    <p className="font-bold text-[#8B1A4A] uppercase text-xs tracking-tighter mb-1">📍 {branch.title}</p>
                     <p className="text-sm font-medium text-[#4A4A4A]">{branch.address}</p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export function BranchLandingPage({ branch }) {
               <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
                 <div className="w-full md:w-1/3 flex-shrink-0">
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-[#C2185B] to-[#8E0038] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
+                    <div className="absolute -inset-4 bg-gradient-to-br from-[#8B1A4A] to-[#5E0F30] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
                     <img
                       src={assetUrl(branch.doctor.image)}
                       alt={branch.doctor.name}
@@ -136,27 +136,27 @@ export function BranchLandingPage({ branch }) {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <p className="text-[#C2185B] font-bold uppercase tracking-[0.3em] mb-3 text-sm">Leadership</p>
-                  <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] mb-3">
+                  <p className="text-[#8B1A4A] font-bold uppercase tracking-[0.3em] mb-3 text-sm">Leadership</p>
+                  <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] mb-3">
                     Led by a Pioneer in<br />Robotic Joint Replacement
                   </h2>
                   <h3 className="text-2xl font-bold text-[#4A4A4A] mb-5 italic">{branch.doctor.name}</h3>
                   <p className="text-[#4A4A4A] text-lg leading-relaxed mb-8">{branch.doctor.bio}</p>
                   <div className="grid grid-cols-3 gap-6 mb-8">
                     <div className="bg-surface-container-low rounded-2xl p-5 text-center">
-                      <p className="text-3xl font-black text-[#C2185B]">{branch.doctor.surgeries}</p>
+                      <p className="text-3xl font-black text-[#8B1A4A]">{branch.doctor.surgeries}</p>
                       <p className="text-xs font-bold uppercase text-[#4A4A4A] mt-1">Procedures</p>
                     </div>
                     <div className="bg-surface-container-low rounded-2xl p-5 text-center">
-                      <p className="text-3xl font-black text-[#C2185B]">{branch.doctor.successRate}</p>
+                      <p className="text-3xl font-black text-[#8B1A4A]">{branch.doctor.successRate}</p>
                       <p className="text-xs font-bold uppercase text-[#4A4A4A] mt-1">Success Rate</p>
                     </div>
                     <div className="bg-surface-container-low rounded-2xl p-5 text-center">
-                      <p className="text-3xl font-black text-[#C2185B]">{branch.doctor.experience}+</p>
+                      <p className="text-3xl font-black text-[#8B1A4A]">{branch.doctor.experience}+</p>
                       <p className="text-xs font-bold uppercase text-[#4A4A4A] mt-1">Years Exp.</p>
                     </div>
                   </div>
-                  <button className="bg-[#C2185B] text-white px-10 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#C2185B]-container transition-all">
+                  <button className="bg-[#8B1A4A] text-white px-10 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#8B1A4A]-container transition-all">
                     View Chairman's Message
                   </button>
                 </div>
@@ -169,7 +169,7 @@ export function BranchLandingPage({ branch }) {
             <section className="py-20 bg-surface-container-low px-8">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-14">
-                  <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] tracking-tight uppercase mb-3">
+                  <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] tracking-tight uppercase mb-3">
                     Precision Ecosystem
                   </h2>
                   <p className="text-[#4A4A4A] max-w-2xl mx-auto">
@@ -217,34 +217,34 @@ export function BranchLandingPage({ branch }) {
                     </div>
                   </div>
                   <div className="order-1 lg:order-2">
-                    <span className="text-[#0F4C5C] font-black uppercase tracking-[0.3em] mb-4 block text-sm">Visit our Facility</span>
-                    <h2 className="font-headline text-4xl md:text-5xl font-black text-[#C2185B] tracking-tight mb-8">
+                    <span className="text-[#2D3A4A] font-black uppercase tracking-[0.3em] mb-4 block text-sm">Visit our Facility</span>
+                    <h2 className="font-headline text-4xl md:text-5xl font-black text-[#8B1A4A] tracking-tight mb-8">
                       Locate {branch.title} <br />
-                      <span className="text-[#0F4C5C] italic">Hospitals.</span>
+                      <span className="text-[#2D3A4A] italic">Hospitals.</span>
                     </h2>
                     
                     <div className="bg-surface-container-low p-8 rounded-3xl border border-outline-variant/30 mb-8 flex items-center gap-6">
-                      <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#C2185B]">
+                      <div className="w-16 h-16 rounded-2xl bg-white shadow-md flex items-center justify-center text-[#8B1A4A]">
                         <MapPin className="w-8 h-8" />
                       </div>
                       <div>
-                        <p className="font-bold text-lg text-[#C2185B]">{branch.address}</p>
+                        <p className="font-bold text-lg text-[#8B1A4A]">{branch.address}</p>
                         <p className="text-[#4A4A4A] text-sm mt-1">{branch.phone}</p>
                       </div>
                     </div>
 
-                    <div className="bg-[#C2185B] text-white p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden">
+                    <div className="bg-[#8B1A4A] text-white p-10 rounded-[2.5rem] shadow-xl relative overflow-hidden">
                        <div className="absolute top-0 right-0 p-8 opacity-10">
                          <Star className="w-32 h-32 rotate-12" />
                        </div>
                        <div className="relative z-10">
-                          <p className="text-xs font-black uppercase tracking-[0.4em] text-[#0F4C5C] mb-4">Patient Validation</p>
+                          <p className="text-xs font-black uppercase tracking-[0.4em] text-[#2D3A4A] mb-4">Patient Validation</p>
                           <div className="flex items-center gap-4 mb-6">
                             <span className="text-[5rem] font-black leading-none tracking-tighter">{branch.googleRating || '4.8'}</span>
                             <div className="flex flex-col">
                               <div className="flex gap-1 mb-2">
                                 {[...Array(5)].map((_, i) => (
-                                  <Star key={i} className="w-6 h-6 fill-secondary text-[#0F4C5C]" />
+                                  <Star key={i} className="w-6 h-6 fill-secondary text-[#2D3A4A]" />
                                 ))}
                               </div>
                               <span className="text-lg font-bold opacity-80">Google Reviews</span>

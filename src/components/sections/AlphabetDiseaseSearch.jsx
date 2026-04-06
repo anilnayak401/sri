@@ -74,7 +74,7 @@ function Skeleton({ isDark }) {
       {widths.map((w, i) => (
         <div
           key={i}
-          className={`h-8 rounded-full animate-pulse ${isDark ? 'bg-white/10' : 'bg-[#C2185B]/10'}`}
+          className={`h-8 rounded-full animate-pulse ${isDark ? 'bg-white/10' : 'bg-[#8B1A4A]/10'}`}
           style={{ width: w }}
         />
       ))}
@@ -94,8 +94,8 @@ function DiseasePill({ name, isDark, index }) {
         inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium
         border transition-all duration-200 cursor-default select-none
         ${isDark
-          ? 'bg-white/5 border-white/10 text-white/80 hover:bg-[#C2185B]/15 hover:border-[#C2185B]/40 hover:text-[#C2185B]'
-          : 'bg-[#FCE4EC] border-[#F8BBD0] text-[#1A1A1A] hover:bg-[#C2185B] hover:border-[#C2185B] hover:text-white'
+          ? 'bg-white/5 border-white/10 text-white/80 hover:bg-[#8B1A4A]/15 hover:border-[#8B1A4A]/40 hover:text-[#8B1A4A]'
+          : 'bg-[#F5D6E3] border-[#E8B4C8] text-[#1A1A1A] hover:bg-[#8B1A4A] hover:border-[#8B1A4A] hover:text-white'
         }
       `}
     >
@@ -241,13 +241,13 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
 
   // ── Style tokens ──
   const T = {
-    section:    isDark ? 'bg-white/[0.03] border border-white/8' : 'bg-white border border-[#F8BBD0]',
-    divider:    isDark ? 'border-white/10' : 'border-[#F8BBD0]',
-    title:      'text-[#C2185B]',
+    section:    isDark ? 'bg-white/[0.03] border border-white/8' : 'bg-white border border-[#E8B4C8]',
+    divider:    isDark ? 'border-white/10' : 'border-[#E8B4C8]',
+    title:      'text-[#8B1A4A]',
     subtitle:   isDark ? 'text-white/45' : 'text-[#4A4A4A]',
     inputWrap:  isDark
-      ? 'bg-white/5 border border-white/12 focus-within:border-[#C2185B]/60'
-      : 'bg-[#FDF6F9] border border-[#F8BBD0] focus-within:border-[#C2185B]',
+      ? 'bg-white/5 border border-white/12 focus-within:border-[#8B1A4A]/60'
+      : 'bg-[#FDF6F9] border border-[#E8B4C8] focus-within:border-[#8B1A4A]',
     input:      isDark
       ? 'bg-transparent text-white placeholder:text-white/30'
       : 'bg-transparent text-[#1A1A1A] placeholder:text-[#9E7B87]',
@@ -264,7 +264,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
           {/* ════════════════════════════════════════
               LEFT — Alphabet filter
           ════════════════════════════════════════ */}
-          <div className={`p-6 md:p-8 lg:order-1 order-2 ${isDark ? 'border-t lg:border-t-0 lg:border-r border-white/8' : 'border-t lg:border-t-0 lg:border-r border-[#F8BBD0]'}`}>
+          <div className={`p-6 md:p-8 lg:order-1 order-2 ${isDark ? 'border-t lg:border-t-0 lg:border-r border-white/8' : 'border-t lg:border-t-0 lg:border-r border-[#E8B4C8]'}`}>
 
             {/* Header */}
             <div className="mb-5">
@@ -291,12 +291,12 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10
                       rounded-full text-[11px] sm:text-[12px] lg:text-[13px] font-semibold
                       transition-all duration-150 flex items-center justify-center mx-auto
-                      focus:outline-none focus:ring-2 focus:ring-[#C2185B]/40 focus:ring-offset-1
+                      focus:outline-none focus:ring-2 focus:ring-[#8B1A4A]/40 focus:ring-offset-1
                       ${isActive
-                        ? 'bg-[#C2185B] text-white shadow-[0_2px_10px_rgba(194,24,91,0.35)] scale-105'
+                        ? 'bg-[#8B1A4A] text-white shadow-[0_2px_10px_rgba(139, 26, 74,0.35)] scale-105'
                         : isDark
-                          ? 'bg-white/5 text-white/50 border border-white/10 hover:bg-[#C2185B] hover:text-white hover:border-[#C2185B] hover:scale-105'
-                          : 'bg-white text-[#C2185B] border border-[#F8BBD0] hover:bg-[#C2185B] hover:text-white hover:border-[#C2185B] hover:scale-105'
+                          ? 'bg-white/5 text-white/50 border border-white/10 hover:bg-[#8B1A4A] hover:text-white hover:border-[#8B1A4A] hover:scale-105'
+                          : 'bg-white text-[#8B1A4A] border border-[#E8B4C8] hover:bg-[#8B1A4A] hover:text-white hover:border-[#8B1A4A] hover:scale-105'
                       }
                     `}
                   >
@@ -326,7 +326,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
             <div className={`search-input-wrap relative flex items-center rounded-xl transition-all duration-200 ${T.inputWrap}`}>
               <Search
                 size={17}
-                className={`absolute left-4 flex-shrink-0 pointer-events-none ${isDark ? 'text-white/30' : 'text-[#C2185B]/50'}`}
+                className={`absolute left-4 flex-shrink-0 pointer-events-none ${isDark ? 'text-white/30' : 'text-[#8B1A4A]/50'}`}
               />
               <input
                 ref={inputRef}
@@ -342,7 +342,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                 <button
                   onClick={handleClear}
                   aria-label="Clear search"
-                  className={`absolute right-14 p-1 rounded-full transition-colors ${isDark ? 'text-white/30 hover:text-white/70' : 'text-[#9E7B87] hover:text-[#C2185B]'}`}
+                  className={`absolute right-14 p-1 rounded-full transition-colors ${isDark ? 'text-white/30 hover:text-white/70' : 'text-[#9E7B87] hover:text-[#8B1A4A]'}`}
                 >
                   <X size={14} />
                 </button>
@@ -350,7 +350,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
               {/* Search button */}
               <button
                 aria-label="Submit search"
-                className="absolute right-2 h-8 w-10 rounded-lg bg-[#C2185B] flex items-center justify-center text-white hover:bg-[#0F4C5C] transition-colors duration-200 shadow-sm"
+                className="absolute right-2 h-8 w-10 rounded-lg bg-[#8B1A4A] flex items-center justify-center text-white hover:bg-[#2D3A4A] transition-colors duration-200 shadow-sm"
               >
                 {loading && mode === 'search'
                   ? <Loader2 size={14} className="animate-spin" />
@@ -378,7 +378,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                     transition={{ duration: 0.15 }}
                   >
                     <div className={`flex items-center gap-2 mb-3 ${T.resultBar}`}>
-                      <Loader2 size={13} className="animate-spin text-[#C2185B]" />
+                      <Loader2 size={13} className="animate-spin text-[#8B1A4A]" />
                       <span className="text-xs">Loading conditions…</span>
                     </div>
                     <Skeleton isDark={isDark} />
@@ -412,7 +412,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       <span className={`text-xs font-semibold ${T.resultBar}`}>{resultLabel}</span>
                       <button
                         onClick={handleClear}
-                        className={`text-[11px] font-bold hover:text-[#C2185B] transition-colors ${T.resultBar}`}
+                        className={`text-[11px] font-bold hover:text-[#8B1A4A] transition-colors ${T.resultBar}`}
                       >
                         Clear
                       </button>
@@ -453,8 +453,8 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                     exit={{ opacity: 0 }}
                     className="flex flex-col items-center justify-center py-8 gap-2 text-center"
                   >
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-1 ${isDark ? 'bg-white/5' : 'bg-[#FCE4EC]'}`}>
-                      <Search size={18} className="text-[#C2185B]" />
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-1 ${isDark ? 'bg-white/5' : 'bg-[#F5D6E3]'}`}>
+                      <Search size={18} className="text-[#8B1A4A]" />
                     </div>
                     <p className={`text-sm font-medium ${T.emptyText}`}>
                       Select a letter or type to search

@@ -117,7 +117,7 @@ export function VideoHero({ branch, children }) {
             <div className="hero-btn-wrap flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
               <button
                 onClick={() => navigate('/book')}
-                className="w-full sm:w-auto min-h-[48px] bg-gradient-to-br from-[#C2185B] to-[#8E0038] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform text-sm md:text-base"
+                className="w-full sm:w-auto min-h-[48px] bg-gradient-to-br from-[#8B1A4A] to-[#5E0F30] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform text-sm md:text-base"
               >
                 Book an Appointment
               </button>
@@ -137,7 +137,7 @@ export function VideoHero({ branch, children }) {
         <div className="absolute bottom-10 right-8 hidden xl:grid grid-cols-2 gap-4 w-[340px] z-20">
           {branch.heroStats.map((stat, i) => (
             <div key={i} className="bg-white/10 backdrop-blur-[20px] p-6 rounded-xl border border-white/20">
-              <p className={`text-3xl font-black ${i === 0 ? 'text-white' : 'text-[#F8BBD0]'}`}>{stat.value}</p>
+              <p className={`text-3xl font-black ${i === 0 ? 'text-white' : 'text-[#E8B4C8]'}`}>{stat.value}</p>
               <p className="text-xs font-bold text-white/60 uppercase">{stat.label}</p>
             </div>
           ))}

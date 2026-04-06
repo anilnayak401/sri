@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export function Footer() {
   return (
-    <footer className="bg-[#FDF6F9] w-full py-16 px-8 border-t border-[#F8BBD0]">
+    <footer className="bg-[#FDF6F9] w-full py-16 px-8 border-t border-[#E8B4C8]">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
 
         {/* Brand */}
@@ -19,7 +19,7 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             {['W', 'S'].map(l => (
-              <div key={l} className="w-9 h-9 rounded-full bg-[#FCE4EC] border border-[#F8BBD0] flex items-center justify-center hover:bg-[#C2185B] hover:text-white hover:border-[#C2185B] transition-all cursor-pointer text-[#C2185B] text-xs font-bold">
+              <div key={l} className="w-9 h-9 rounded-full bg-[#F5D6E3] border border-[#E8B4C8] flex items-center justify-center hover:bg-[#8B1A4A] hover:text-white hover:border-[#8B1A4A] transition-all cursor-pointer text-[#8B1A4A] text-xs font-bold">
                 {l}
               </div>
             ))}
@@ -28,11 +28,11 @@ export function Footer() {
 
         {/* Specialties */}
         <div>
-          <h4 className="font-bold text-[#C2185B] mb-6 uppercase text-xs tracking-widest">Specialties</h4>
+          <h4 className="font-bold text-[#8B1A4A] mb-6 uppercase text-xs tracking-widest">Specialties</h4>
           <ul className="space-y-4">
             {['Joint Replacement', 'Sports Medicine', 'Neurosciences', 'Cardiology'].map(item => (
               <li key={item}>
-                <Link to="#" className="text-[#4A4A4A] hover:text-[#C2185B] text-sm transition-colors">
+                <Link to="#" className="text-[#4A4A4A] hover:text-[#8B1A4A] text-sm transition-colors">
                   {item}
                 </Link>
               </li>
@@ -42,11 +42,11 @@ export function Footer() {
 
         {/* Resources */}
         <div>
-          <h4 className="font-bold text-[#C2185B] mb-6 uppercase text-xs tracking-widest">Resources</h4>
+          <h4 className="font-bold text-[#8B1A4A] mb-6 uppercase text-xs tracking-widest">Resources</h4>
           <ul className="space-y-4">
             {["Chairman's Message", 'Privacy Policy', 'Patient Guide', 'International Patients'].map(item => (
               <li key={item}>
-                <Link to="#" className="text-[#4A4A4A] hover:text-[#0F4C5C] text-sm transition-colors">
+                <Link to="#" className="text-[#4A4A4A] hover:text-[#2D3A4A] text-sm transition-colors">
                   {item}
                 </Link>
               </li>
@@ -56,19 +56,19 @@ export function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="font-bold text-[#C2185B] mb-6 uppercase text-xs tracking-widest">Contact Branch</h4>
+          <h4 className="font-bold text-[#8B1A4A] mb-6 uppercase text-xs tracking-widest">Contact Branch</h4>
           <p className="text-[#4A4A4A] text-sm mb-4">
             Survey No. 12, Peerzadiguda Road,<br />
             Uppal, Hyderabad, 500039
           </p>
-          <div className="p-4 bg-white rounded-xl shadow-sm border border-[#F8BBD0]">
-            <p className="text-xs font-bold text-[#C2185B] mb-1">Emergency Direct</p>
-            <p className="text-lg font-black text-[#C2185B]">040-68324800</p>
+          <div className="p-4 bg-white rounded-xl shadow-sm border border-[#E8B4C8]">
+            <p className="text-xs font-bold text-[#8B1A4A] mb-1">Emergency Direct</p>
+            <p className="text-lg font-black text-[#8B1A4A]">040-68324800</p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#F8BBD0]">
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[#E8B4C8]">
         <p className="text-[#9E7B87] text-xs text-center leading-relaxed">
           © {new Date().getFullYear()} Srikara Hospitals. All Rights Reserved. Clinical Precision &amp; Human Connection.
         </p>

@@ -111,11 +111,11 @@ export function StickyNavbar({ currentBranch }) {
                   key={link.label}
                   to={link.path}
                   className={`relative px-4 py-2.5 rounded-full font-headline tracking-widest text-[13px] font-black uppercase transition-all duration-300 ${
-                    isActive(link.path) ? 'text-[#C2185B]' : 'text-[#4A4A4A] hover:text-[#C2185B]'
+                    isActive(link.path) ? 'text-[#8B1A4A]' : 'text-[#4A4A4A] hover:text-[#8B1A4A]'
                   }`}
                 >
                   {isActive(link.path) && (
-                    <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#C2185B]/5 rounded-full z-0" />
+                    <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#8B1A4A]/5 rounded-full z-0" />
                   )}
                   <span className="relative z-10">{link.label}</span>
                 </Link>
@@ -127,15 +127,15 @@ export function StickyNavbar({ currentBranch }) {
                   <button
                     onClick={() => setBranchDropOpen(prev => !prev)}
                     className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-full font-headline tracking-widest text-[13px] font-black uppercase transition-all duration-300 ${
-                      branchDropOpen || isActive('/branches') ? 'text-[#C2185B]' : 'text-[#4A4A4A] hover:text-[#C2185B]'
+                      branchDropOpen || isActive('/branches') ? 'text-[#8B1A4A]' : 'text-[#4A4A4A] hover:text-[#8B1A4A]'
                     }`}
                   >
                     {(isActive('/branches') || branchDropOpen) && (
-                      <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#C2185B]/5 rounded-full z-0" />
+                      <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#8B1A4A]/5 rounded-full z-0" />
                     )}
                     <span className="relative z-10">Branches</span>
                     <ChevronDown
-                      className={`w-3.5 h-3.5 relative z-10 transition-transform duration-500 ${branchDropOpen ? 'rotate-180 text-[#C2185B]' : 'text-[#C2185B]/40'}`}
+                      className={`w-3.5 h-3.5 relative z-10 transition-transform duration-500 ${branchDropOpen ? 'rotate-180 text-[#8B1A4A]' : 'text-[#8B1A4A]/40'}`}
                     />
                   </button>
 
@@ -148,7 +148,7 @@ export function StickyNavbar({ currentBranch }) {
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                         className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[520px] bg-white rounded-2xl shadow-[0_24px_60px_rgba(0,52,97,0.15)] border border-outline-variant/20 overflow-hidden z-50"
                       >
-                        <div className="px-6 py-4 bg-gradient-to-r from-[#C2185B] to-[#8E0038] flex items-center justify-between">
+                        <div className="px-6 py-4 bg-gradient-to-r from-[#8B1A4A] to-[#5E0F30] flex items-center justify-between">
                           <div>
                             <p className="text-white font-headline font-bold text-sm uppercase tracking-widest">Our Centers</p>
                             <p className="text-white/70 text-[10px] mt-0.5">{branches.length} locations across AP & Telangana</p>
@@ -163,11 +163,11 @@ export function StickyNavbar({ currentBranch }) {
                               to={`/branches/${branch.slug}`}
                               className="group flex items-start gap-3 p-3 rounded-xl hover:bg-surface-container-low transition-all duration-200"
                             >
-                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#C2185B]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#C2185B]/20 transition-colors">
-                                <MapPin className="w-4 h-4 text-[#C2185B]" />
+                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#8B1A4A]/10 flex items-center justify-center mt-0.5 group-hover:bg-[#8B1A4A]/20 transition-colors">
+                                <MapPin className="w-4 h-4 text-[#8B1A4A]" />
                               </div>
                               <div className="min-w-0">
-                                <p className="font-headline font-bold text-sm text-[#C2185B] group-hover:text-[#C2185B]-container transition-colors truncate">{branch.title}</p>
+                                <p className="font-headline font-bold text-sm text-[#8B1A4A] group-hover:text-[#8B1A4A]-container transition-colors truncate">{branch.title}</p>
                                 <p className="text-[11px] text-[#4A4A4A] truncate leading-relaxed">{branch.subtitle}</p>
                               </div>
                             </Link>
@@ -175,8 +175,8 @@ export function StickyNavbar({ currentBranch }) {
                         </div>
 
                         <div className="px-6 py-3 bg-surface-container-low border-t border-outline-variant/20 flex items-center justify-between">
-                          <p className="text-[11px] text-[#4A4A4A]">🚨 Emergency: <span className="font-bold text-[#C2185B]">040-68324800</span></p>
-                          <button onClick={() => { navigate('/book'); setBranchDropOpen(false) }} className="text-[10px] font-bold text-white bg-gradient-to-r from-[#C2185B] to-[#8E0038] px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">Book Appointment</button>
+                          <p className="text-[11px] text-[#4A4A4A]">🚨 Emergency: <span className="font-bold text-[#8B1A4A]">040-68324800</span></p>
+                          <button onClick={() => { navigate('/book'); setBranchDropOpen(false) }} className="text-[10px] font-bold text-white bg-gradient-to-r from-[#8B1A4A] to-[#5E0F30] px-4 py-1.5 rounded-full hover:opacity-90 transition-opacity">Book Appointment</button>
                         </div>
                       </motion.div>
                     )}
@@ -189,11 +189,11 @@ export function StickyNavbar({ currentBranch }) {
                   key={link.label}
                   to={link.path}
                   className={`relative px-4 py-2.5 rounded-full font-headline tracking-widest text-[13px] font-black uppercase transition-all duration-300 ${
-                    isActive(link.path) ? 'text-[#C2185B]' : 'text-[#4A4A4A] hover:text-[#C2185B]'
+                    isActive(link.path) ? 'text-[#8B1A4A]' : 'text-[#4A4A4A] hover:text-[#8B1A4A]'
                   }`}
                 >
                   {isActive(link.path) && (
-                    <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#C2185B]/5 rounded-full z-0" />
+                    <motion.div layoutId="nav-bg" className="absolute inset-0 bg-[#8B1A4A]/5 rounded-full z-0" />
                   )}
                   <span className="relative z-10">{link.label}</span>
                 </Link>
@@ -227,7 +227,7 @@ export function StickyNavbar({ currentBranch }) {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate('/book')}
-            className="hidden sm:flex items-center gap-3 bg-[#C2185B] text-white pl-6 pr-5 py-3 rounded-full shadow-[0_15px_40px_rgba(0,52,97,0.2)] group relative overflow-hidden active:shadow-inner transition-all duration-300"
+            className="hidden sm:flex items-center gap-3 bg-[#8B1A4A] text-white pl-6 pr-5 py-3 rounded-full shadow-[0_15px_40px_rgba(0,52,97,0.2)] group relative overflow-hidden active:shadow-inner transition-all duration-300"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-[1.2s] ease-in-out" />
             <span className="font-headline font-black text-xs uppercase tracking-widest relative z-10">Book Appointment</span>
@@ -240,7 +240,7 @@ export function StickyNavbar({ currentBranch }) {
             className="lg:hidden p-3 rounded-2xl bg-surface-container-low hover:bg-surface-container transition-all"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="text-[#C2185B] w-6 h-6" /> : <Menu className="text-[#C2185B] w-6 h-6" />}
+            {mobileOpen ? <X className="text-[#8B1A4A] w-6 h-6" /> : <Menu className="text-[#8B1A4A] w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -266,7 +266,7 @@ export function StickyNavbar({ currentBranch }) {
                   <Link
                     to={link.path}
                     className={`flex items-center justify-between py-4 px-5 rounded-2xl font-headline text-lg font-black uppercase tracking-tight transition-all ${
-                      isActive(link.path) ? 'bg-[#C2185B] text-white' : 'text-[#4A4A4A] hover:bg-[#C2185B]/5'
+                      isActive(link.path) ? 'bg-[#8B1A4A] text-white' : 'text-[#4A4A4A] hover:bg-[#8B1A4A]/5'
                     }`}
                   >
                     {link.label}
@@ -284,12 +284,12 @@ export function StickyNavbar({ currentBranch }) {
                     <Link
                       key={branch.slug}
                       to={`/branches/${branch.slug}`}
-                      className="flex items-center gap-3 p-3 rounded-2xl hover:bg-[#C2185B]/5 transition-all border border-outline-variant/10"
+                      className="flex items-center gap-3 p-3 rounded-2xl hover:bg-[#8B1A4A]/5 transition-all border border-outline-variant/10"
                     >
-                      <div className="w-8 h-8 rounded-xl bg-[#C2185B]/5 flex items-center justify-center">
-                        <MapPin className="w-4 h-4 text-[#C2185B]" />
+                      <div className="w-8 h-8 rounded-xl bg-[#8B1A4A]/5 flex items-center justify-center">
+                        <MapPin className="w-4 h-4 text-[#8B1A4A]" />
                       </div>
-                      <span className="text-xs font-black text-[#C2185B] uppercase">{branch.title}</span>
+                      <span className="text-xs font-black text-[#8B1A4A] uppercase">{branch.title}</span>
                     </Link>
                   ))}
                 </div>
@@ -299,7 +299,7 @@ export function StickyNavbar({ currentBranch }) {
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 onClick={() => navigate('/book')}
-                className="mt-8 w-full bg-[#C2185B] text-white py-5 rounded-[2rem] font-headline font-black uppercase tracking-widest text-sm shadow-2xl shadow-[#C2185B]/30 flex items-center justify-center gap-4"
+                className="mt-8 w-full bg-[#8B1A4A] text-white py-5 rounded-[2rem] font-headline font-black uppercase tracking-widest text-sm shadow-2xl shadow-[#8B1A4A]/30 flex items-center justify-center gap-4"
               >
                 <Calendar className="w-5 h-5" />
                 Book Fast Appointment

@@ -4,9 +4,9 @@
 
 /* ─────────────────────────────────────────────────────────────
    GLOBAL BRAND DESIGN SYSTEM
-   Primary:    #C2185B  (deep rose)
-   Secondary:  #0F4C5C  (teal)
-   Bg Light:   #F8E6EC
+   Primary:    #8B1A4A  (deep rose)
+   Secondary:  #2D3A4A  (teal)
+   Bg Light:   #F5E8EF
    Text Dark:  #1A1A1A
 ───────────────────────────────────────────────────────────── */
 
@@ -21,23 +21,23 @@
     --ring:        194 24 91;
 
     /* ── Brand CSS variables (use anywhere with var()) ── */
-    --brand-primary:        #C2185B;
-    --brand-primary-dark:   #8E0038;
-    --brand-primary-light:  #F8BBD0;
-    --brand-primary-bg:     #FCE4EC;
+    --brand-primary:        #8B1A4A;
+    --brand-primary-dark:   #5E0F30;
+    --brand-primary-light:  #E8B4C8;
+    --brand-primary-bg:     #F5D6E3;
 
-    --brand-secondary:      #0F4C5C;
-    --brand-secondary-dark: #082F3A;
-    --brand-secondary-light:#B2EBF2;
-    --brand-secondary-bg:   #E0F7FA;
+    --brand-secondary:      #2D3A4A;
+    --brand-secondary-dark: #1A2330;
+    --brand-secondary-light:#8A9BAD;
+    --brand-secondary-bg:   #E8EDF2;
 
-    --brand-bg-light:       #F8E6EC;
+    --brand-bg-light:       #F5E8EF;
     --brand-text-dark:      #1A1A1A;
     --brand-text-muted:     #4A4A4A;
 
     /* gradient shorthand */
-    --brand-gradient: linear-gradient(90deg, #C2185B, #0F4C5C);
-    --brand-gradient-soft: linear-gradient(135deg, #FCE4EC 0%, #E0F7FA 100%);
+    --brand-gradient: linear-gradient(90deg, #8B1A4A, #2D3A4A);
+    --brand-gradient-soft: linear-gradient(135deg, #F5D6E3 0%, #E8EDF2 100%);
   }
 
   * { @apply border-outline-variant; }
@@ -53,16 +53,16 @@
   /* ── Global heading color ── */
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
-    color: #C2185B;
+    color: #8B1A4A;
     letter-spacing: -0.01em;
   }
 
   /* ── Links ── */
   a {
-    color: #C2185B;
+    color: #8B1A4A;
     transition: color 0.2s ease;
   }
-  a:hover { color: #0F4C5C; }
+  a:hover { color: #2D3A4A; }
 
   /* Performance */
   section { contain: layout style; }
@@ -76,12 +76,12 @@
   /* Primary button */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-[#C2185B] text-white font-bold uppercase tracking-widest
+           bg-[#8B1A4A] text-white font-bold uppercase tracking-widest
            px-8 py-4 rounded-full shadow-primary
            transition-all duration-300;
   }
   .btn-primary:hover {
-    background-color: #0F4C5C;
+    background-color: #2D3A4A;
     @apply shadow-secondary scale-[1.02];
   }
   .btn-primary:active { @apply scale-[0.98]; }
@@ -89,43 +89,43 @@
   /* Secondary / outline button */
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2
-           border-2 border-[#0F4C5C] text-[#0F4C5C] font-bold uppercase tracking-widest
+           border-2 border-[#2D3A4A] text-[#2D3A4A] font-bold uppercase tracking-widest
            px-8 py-4 rounded-full
            transition-all duration-300 bg-transparent;
   }
   .btn-secondary:hover {
-    @apply bg-[#0F4C5C] text-white;
+    @apply bg-[#2D3A4A] text-white;
   }
 
   /* ── Hero gradient text — line 2 of every hero heading ── */
   .hero-gradient-text {
-    background: linear-gradient(90deg, #E91E63, #C2185B, #8E0E3A);
+    background: linear-gradient(90deg, #A02057, #8B1A4A, #5E0F30);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* subtle glow that works on dark backgrounds */
-    filter: drop-shadow(0 2px 10px rgba(194, 24, 91, 0.30));
+    filter: drop-shadow(0 2px 10px rgba(139, 26, 74, 0.30));
   }
 
   /* brand-gradient-text — used on dark pages (About etc.) */
   .brand-gradient-text {
-    background: linear-gradient(90deg, #E91E63, #C2185B, #8E0E3A);
+    background: linear-gradient(90deg, #A02057, #8B1A4A, #5E0F30);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 2px 8px rgba(194, 24, 91, 0.25));
+    filter: drop-shadow(0 2px 8px rgba(139, 26, 74, 0.25));
   }
 
   /* Glass card — light theme */
   .glass-card-light {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(194, 24, 91, 0.12);
+    border: 1px solid rgba(139, 26, 74, 0.12);
     transition: all 0.4s ease;
   }
   .glass-card-light:hover {
-    border-color: rgba(194, 24, 91, 0.3);
-    box-shadow: 0 20px 50px rgba(194, 24, 91, 0.10);
+    border-color: rgba(139, 26, 74, 0.3);
+    box-shadow: 0 20px 50px rgba(139, 26, 74, 0.10);
     transform: translateY(-4px);
   }
 
@@ -137,8 +137,8 @@
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .glass-card-dark:hover {
-    border-color: rgba(194, 24, 91, 0.35);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(194,24,91,0.15);
+    border-color: rgba(139, 26, 74, 0.35);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(139, 26, 74,0.15);
     transform: translateY(-6px);
   }
 
@@ -284,9 +284,9 @@
   }
   .skeleton {
     background: linear-gradient(90deg,
-      rgba(194,24,91,0.04) 25%,
-      rgba(194,24,91,0.10) 50%,
-      rgba(194,24,91,0.04) 75%);
+      rgba(139, 26, 74,0.04) 25%,
+      rgba(139, 26, 74,0.10) 50%,
+      rgba(139, 26, 74,0.04) 75%);
     background-size: 800px 100%;
     animation: shimmer 1.4s infinite linear;
   }

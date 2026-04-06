@@ -15,8 +15,8 @@ import { MobileBottomNav } from '@/components/layout/MobileBottomNav'
 import { AlphabetDiseaseSearch } from '@/components/sections/AlphabetDiseaseSearch'
 
 // Brand palette for this dark-bg page
-const P = '#C2185B'   // primary rose
-const S = '#0F4C5C'   // secondary teal
+const P = '#8B1A4A'   // primary rose
+const S = '#2D3A4A'   // secondary teal
 const STYLES = `
   .glass-card {
     background: rgba(255,255,255,0.04);
@@ -26,8 +26,8 @@ const STYLES = `
     transition: all 0.6s cubic-bezier(0.34,1.56,0.64,1);
   }
   .glass-card:hover {
-    border-color: rgba(194,24,91,0.35);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(194,24,91,0.15);
+    border-color: rgba(139, 26, 74,0.35);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(139, 26, 74,0.15);
     transform: translateY(-6px);
   }
 `;
@@ -112,8 +112,8 @@ export function SpecialtiesPage() {
 
         {/* Ambient background */}
         <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(194,24,91,0.12)_0%,transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(15,76,92,0.10)_0%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139, 26, 74,0.12)_0%,transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(45, 58, 74,0.10)_0%,transparent_60%)]" />
         </div>
 
         <main className="relative z-10 max-w-[1400px] mx-auto px-8 pt-32 pb-48">
@@ -121,13 +121,13 @@ export function SpecialtiesPage() {
           {/* Search + Filter */}
           <div className="mb-20 flex flex-col items-center gap-12">
             <div className="relative w-full max-w-xl group">
-              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-[#C2185B]/50 group-hover:text-[#C2185B] transition-colors" size={18} />
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-[#8B1A4A]/50 group-hover:text-[#8B1A4A] transition-colors" size={18} />
               <input
                 type="text"
                 placeholder="Search for your department..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-[58px] bg-white/5 border border-white/10 rounded-[18px] pl-16 pr-6 outline-none focus:border-[#C2185B]/50 text-sm font-medium transition-all placeholder:text-white/30 text-center text-white"
+                className="w-full h-[58px] bg-white/5 border border-white/10 rounded-[18px] pl-16 pr-6 outline-none focus:border-[#8B1A4A]/50 text-sm font-medium transition-all placeholder:text-white/30 text-center text-white"
               />
             </div>
 
@@ -141,8 +141,8 @@ export function SpecialtiesPage() {
                   onClick={() => setActiveFilter(cat.id)}
                   className={`px-7 py-3.5 rounded-full text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 border whitespace-nowrap flex items-center gap-2.5 ${
                     activeFilter === cat.id
-                      ? 'bg-[#C2185B] border-[#C2185B] text-white shadow-[0_4px_20px_rgba(194,24,91,0.35)]'
-                      : 'bg-white/5 border-white/8 text-white/50 hover:border-[#C2185B]/40 hover:text-white'
+                      ? 'bg-[#8B1A4A] border-[#8B1A4A] text-white shadow-[0_4px_20px_rgba(139, 26, 74,0.35)]'
+                      : 'bg-white/5 border-white/8 text-white/50 hover:border-[#8B1A4A]/40 hover:text-white'
                   }`}
                 >
                   <span>{cat.icon}</span> {cat.label}
@@ -165,12 +165,12 @@ export function SpecialtiesPage() {
                   >
                     <div className="flex flex-col gap-5 mb-12">
                       <div className="flex items-center gap-4">
-                        <div className="w-5 h-5 rounded-md bg-[#C2185B]/10 border border-[#C2185B]/20 flex items-center justify-center text-[#C2185B] text-[10px]">⬡</div>
-                        <h2 className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#C2185B]">
+                        <div className="w-5 h-5 rounded-md bg-[#8B1A4A]/10 border border-[#8B1A4A]/20 flex items-center justify-center text-[#8B1A4A] text-[10px]">⬡</div>
+                        <h2 className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#8B1A4A]">
                           {group.replace('_', ' & ')} SPECIALITIES
                         </h2>
                       </div>
-                      <div className="h-px bg-[#C2185B]/10 w-full" />
+                      <div className="h-px bg-[#8B1A4A]/10 w-full" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
@@ -182,15 +182,15 @@ export function SpecialtiesPage() {
                           transition={{ delay: i * 0.04 }}
                           className="glass-card rounded-[20px] p-[28px] relative group overflow-hidden"
                         >
-                          <div className="absolute top-[-20%] left-[-20%] w-1/2 h-1/2 bg-[#C2185B]/5 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                          <div className="absolute top-[-20%] left-[-20%] w-1/2 h-1/2 bg-[#8B1A4A]/5 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                           <div className="flex justify-between items-start mb-8">
-                            <div className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 relative overflow-hidden group-hover:scale-[1.1] border border-white/5 bg-[#C2185B]/10 text-[#C2185B] group-hover:bg-[#C2185B] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(194,24,91,0.4)]">
+                            <div className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 relative overflow-hidden group-hover:scale-[1.1] border border-white/5 bg-[#8B1A4A]/10 text-[#8B1A4A] group-hover:bg-[#8B1A4A] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(139, 26, 74,0.4)]">
                               <dept.icon size={26} className="relative z-10" />
                             </div>
                             <div className="flex flex-col items-end gap-2">
                               {dept.featured && (
-                                <span className="text-[9px] font-bold uppercase tracking-wider text-[#C2185B] px-2.5 py-1 bg-[#C2185B]/10 rounded-full border border-[#C2185B]/20">
+                                <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B1A4A] px-2.5 py-1 bg-[#8B1A4A]/10 rounded-full border border-[#8B1A4A]/20">
                                   ✦ Featured
                                 </span>
                               )}
@@ -203,14 +203,14 @@ export function SpecialtiesPage() {
                             </div>
                           </div>
 
-                          <h3 className="text-[18px] font-semibold text-white mb-3 group-hover:text-[#C2185B] transition-colors">{dept.name}</h3>
+                          <h3 className="text-[18px] font-semibold text-white mb-3 group-hover:text-[#8B1A4A] transition-colors">{dept.name}</h3>
                           <p className="text-white/50 text-[13.5px] leading-[1.7] mb-8">{dept.desc}</p>
 
                           <div className="pt-6 border-t border-white/5 flex items-center justify-between">
                             <span className="text-[11px] font-medium text-white/30 tracking-wider">{dept.docs} Specialists</span>
                             <button
                               onClick={() => navigate('/book')}
-                              className="text-[11px] font-bold uppercase tracking-widest text-[#C2185B] flex items-center gap-2 group/btn"
+                              className="text-[11px] font-bold uppercase tracking-widest text-[#8B1A4A] flex items-center gap-2 group/btn"
                             >
                               Reserve <ArrowRight size={14} className="opacity-0 -translate-x-2 transition-all duration-300 group-hover/btn:opacity-100 group-hover/btn:translate-x-0" />
                             </button>
@@ -243,18 +243,18 @@ export function SpecialtiesPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                 <button
                   onClick={() => navigate('/book')}
-                  className="h-[58px] px-12 bg-[#C2185B] text-white rounded-full font-bold uppercase tracking-[0.1em] text-[13px] shadow-[0_20px_40px_rgba(194,24,91,0.3)] hover:bg-[#0F4C5C] hover:shadow-[0_20px_40px_rgba(15,76,92,0.3)] transition-all duration-300"
+                  className="h-[58px] px-12 bg-[#8B1A4A] text-white rounded-full font-bold uppercase tracking-[0.1em] text-[13px] shadow-[0_20px_40px_rgba(139, 26, 74,0.3)] hover:bg-[#2D3A4A] hover:shadow-[0_20px_40px_rgba(45, 58, 74,0.3)] transition-all duration-300"
                 >
                   Book an Appointment
                 </button>
                 <button
                   onClick={() => navigate('/doctors')}
-                  className="h-[58px] px-12 glass-card rounded-full font-bold uppercase tracking-[0.1em] text-[13px] text-white/70 hover:text-white hover:border-[#C2185B]/30 transition-all"
+                  className="h-[58px] px-12 glass-card rounded-full font-bold uppercase tracking-[0.1em] text-[13px] text-white/70 hover:text-white hover:border-[#8B1A4A]/30 transition-all"
                 >
                   Explore Our Doctors
                 </button>
               </div>
-              <div className="mt-12 flex flex-wrap justify-center gap-8 text-[11px] font-bold uppercase tracking-widest text-[#C2185B]/50">
+              <div className="mt-12 flex flex-wrap justify-center gap-8 text-[11px] font-bold uppercase tracking-widest text-[#8B1A4A]/50">
                 <span>✦ 500+ Specialists</span>
                 <span>✦ 40+ Departments</span>
                 <span>✦ NABH Accredited</span>

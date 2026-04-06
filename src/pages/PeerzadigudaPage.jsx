@@ -53,7 +53,7 @@ export function PeerzadigudaPage() {
             <div className="hero-btn-wrap flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
               <button
                 onClick={() => navigate('/book')}
-                className="w-full sm:w-auto min-h-[48px] bg-gradient-to-br from-[#C2185B] to-[#8E0038] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform text-sm md:text-base"
+                className="w-full sm:w-auto min-h-[48px] bg-gradient-to-br from-[#8B1A4A] to-[#5E0F30] text-white px-8 py-3 md:py-4 rounded-full font-label font-bold uppercase tracking-widest shadow-lg active:scale-95 transition-transform text-sm md:text-base"
               >
                 Book an Appointment
               </button>
@@ -72,24 +72,24 @@ export function PeerzadigudaPage() {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
               <div className="max-w-2xl">
-                <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] tracking-tight mb-4 uppercase">
+                <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] tracking-tight mb-4 uppercase">
                   Centers of Excellence
                 </h2>
                 <p className="text-[#4A4A4A]">
                   Our Peerzadiguda facility combines neighborhood accessibility with the surgical power of a global medical hub.
                 </p>
               </div>
-              <span className="text-[#C2185B] font-black text-6xl opacity-10 hidden md:block">01</span>
+              <span className="text-[#8B1A4A] font-black text-6xl opacity-10 hidden md:block">01</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {branch.specialtiesCards.map((item, i) => (
                 <div key={i} className="group bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-ambient">
-                  <div className="absolute left-0 top-0 w-1 h-0 bg-[#C2185B] group-hover:h-full transition-all duration-300 ease-in-out" />
-                  <div className={`w-12 h-12 rounded-lg bg-[#C2185B]/5 flex items-center justify-center mb-6 text-2xl ${item.iconColor || 'text-[#C2185B]'}`}>
+                  <div className="absolute left-0 top-0 w-1 h-0 bg-[#8B1A4A] group-hover:h-full transition-all duration-300 ease-in-out" />
+                  <div className={`w-12 h-12 rounded-lg bg-[#8B1A4A]/5 flex items-center justify-center mb-6 text-2xl ${item.iconColor || 'text-[#8B1A4A]'}`}>
                     {iconMap[item.icon] || '⚕️'}
                   </div>
-                  <h3 className="font-headline font-bold text-lg text-[#C2185B] mb-2">{item.title}</h3>
+                  <h3 className="font-headline font-bold text-lg text-[#8B1A4A] mb-2">{item.title}</h3>
                   <p className="text-sm text-[#4A4A4A] leading-relaxed">{item.description}</p>
                 </div>
               ))}
@@ -110,8 +110,8 @@ export function PeerzadigudaPage() {
               </div>
               <div className="absolute -bottom-6 -right-4 lg:-right-8 bg-surface/70 backdrop-blur-[20px] p-6 rounded-2xl border border-white/30 max-w-[260px] shadow-xl">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[#C2185B] text-lg">⚙️</span>
-                  <p className="font-bold text-[#C2185B] uppercase text-xs tracking-tighter">Robotic Advantage</p>
+                  <span className="text-[#8B1A4A] text-lg">⚙️</span>
+                  <p className="font-bold text-[#8B1A4A] uppercase text-xs tracking-tighter">Robotic Advantage</p>
                 </div>
                 <p className="text-sm font-medium text-[#4A4A4A] italic">
                   "We've brought the precision of elite city centers to Peerzadiguda, ensuring no one has to travel far for the best surgery."
@@ -120,9 +120,9 @@ export function PeerzadigudaPage() {
             </div>
 
             <div>
-              <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-[#C2185B] tracking-tight mb-8">
+              <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-[#8B1A4A] tracking-tight mb-8">
                 Accessible Advanced Care.<br />
-                <span className="text-[#0F4C5C] italic">Now Closer to Home.</span>
+                <span className="text-[#2D3A4A] italic">Now Closer to Home.</span>
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-8 leading-relaxed">
                 At Srikara Hospitals Peerzadiguda, we believe precision shouldn't be a privilege. By integrating high-tech robotic surgery into our neighborhood facility, we ensure that advanced healthcare is both geographically and financially accessible to the local community.
@@ -130,12 +130,12 @@ export function PeerzadigudaPage() {
               <ul className="space-y-4 mb-10">
                 {branch.accessibleCareHighlights.map((item, i) => (
                   <li key={i} className="flex items-center gap-4 text-on-surface font-semibold">
-                    <span className="text-[#0F4C5C] text-xl flex-shrink-0">✅</span>
+                    <span className="text-[#2D3A4A] text-xl flex-shrink-0">✅</span>
                     {item}
                   </li>
                 ))}
               </ul>
-              <button className="bg-[#0F4C5C] text-white px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#0F4C5C]/90 transition-all">
+              <button className="bg-[#2D3A4A] text-white px-8 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#2D3A4A]/90 transition-all">
                 Learn about our mission
               </button>
             </div>
@@ -147,7 +147,7 @@ export function PeerzadigudaPage() {
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/3 flex-shrink-0">
               <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#C2185B] to-[#8E0038] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#8B1A4A] to-[#5E0F30] opacity-10 rounded-2xl rotate-3 transition-transform group-hover:rotate-6" />
                 <img
                   src={assetUrl(branch.doctor.image)}
                   alt={branch.doctor.name}
@@ -156,23 +156,23 @@ export function PeerzadigudaPage() {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-[#C2185B] font-bold uppercase tracking-[0.3em] mb-4">Leadership</p>
-              <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] mb-4">
+              <p className="text-[#8B1A4A] font-bold uppercase tracking-[0.3em] mb-4">Leadership</p>
+              <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] mb-4">
                 Led by a Pioneer in Robotic Joint Replacement
               </h2>
               <h3 className="text-2xl font-bold text-[#4A4A4A] mb-6 italic">{branch.doctor.name}</h3>
               <p className="text-[#4A4A4A] text-lg leading-relaxed mb-8">{branch.doctor.bio}</p>
-              <div className="grid grid-cols-2 gap-8 mb-8 border-l-2 border-[#0F4C5C]/20 pl-8">
+              <div className="grid grid-cols-2 gap-8 mb-8 border-l-2 border-[#2D3A4A]/20 pl-8">
                 <div>
-                  <p className="text-3xl font-black text-[#C2185B]">{branch.doctor.surgeries}</p>
+                  <p className="text-3xl font-black text-[#8B1A4A]">{branch.doctor.surgeries}</p>
                   <p className="text-xs font-bold uppercase text-[#4A4A4A]">Joint Replacements</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-black text-[#C2185B]">{branch.doctor.experience}+</p>
+                  <p className="text-3xl font-black text-[#8B1A4A]">{branch.doctor.experience}+</p>
                   <p className="text-xs font-bold uppercase text-[#4A4A4A]">Years of Excellence</p>
                 </div>
               </div>
-              <button className="bg-[#C2185B] text-white px-10 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#C2185B]-container transition-all">
+              <button className="bg-[#8B1A4A] text-white px-10 py-4 rounded-full font-label font-bold uppercase tracking-widest hover:bg-[#8B1A4A]-container transition-all">
                 View Chairman's Message
               </button>
             </div>
@@ -183,7 +183,7 @@ export function PeerzadigudaPage() {
         <section className="py-24 bg-surface-container-low px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="font-headline text-4xl font-extrabold text-[#C2185B] tracking-tight mb-4 uppercase">
+              <h2 className="font-headline text-4xl font-extrabold text-[#8B1A4A] tracking-tight mb-4 uppercase">
                 Modern Infrastructure
               </h2>
               <p className="text-[#4A4A4A] max-w-2xl mx-auto">

@@ -15,37 +15,40 @@ export default {
     },
     extend: {
       colors: {
-        // ── BRAND SYSTEM ──────────────────────────────────────────
-        primary:            '#C2185B',   // deep rose — headings, buttons, highlights
-        'primary-dark':     '#8E0038',   // hover / pressed state
-        'primary-light':    '#F8BBD0',   // tints, backgrounds
-        'primary-container':'#FCE4EC',   // card backgrounds, chips
+        // ── BRAND SYSTEM — matched to logo ────────────────────────
+        // Primary  = deep wine/burgundy swooshes in logo
+        // Secondary = dark slate/charcoal heads in logo
+        primary:             '#8B1A4A',   // deep wine burgundy
+        'primary-dark':      '#5E0F30',   // darker pressed state
+        'primary-mid':       '#A02057',   // mid hover
+        'primary-light':     '#E8B4C8',   // soft tint
+        'primary-container': '#F5D6E3',   // card/chip background
 
-        secondary:          '#0F4C5C',   // teal — accents, icons, hover
-        'secondary-dark':   '#082F3A',   // deeper teal
-        'secondary-light':  '#B2EBF2',   // tint
-        'secondary-container':'#E0F7FA', // card backgrounds
+        secondary:           '#2D3A4A',   // dark slate (logo heads)
+        'secondary-dark':    '#1A2330',   // deeper
+        'secondary-light':   '#8A9BAD',   // muted tint
+        'secondary-container':'#E8EDF2',  // card background
 
         // ── SURFACE / NEUTRAL ─────────────────────────────────────
-        surface:                '#FFFFFF',
-        'surface-low':          '#FDF6F9',
-        'surface-container':    '#F8E6EC',   // brand bg-light
-        'surface-container-low':'#FDF0F5',
-        'surface-container-high':'#F3D0DC',
+        surface:                  '#FFFFFF',
+        'surface-low':            '#FBF5F8',
+        'surface-container':      '#F5E8EF',
+        'surface-container-low':  '#FAF0F5',
+        'surface-container-high': '#EDD0DC',
         'surface-container-lowest':'#FFFFFF',
-        'surface-container-highest':'#EEC4D2',
-        'surface-bright':       '#FFFFFF',
-        'surface-dim':          '#E8C8D4',
-        'surface-variant':      '#F8E6EC',
+        'surface-container-highest':'#E5C0D0',
+        'surface-bright':         '#FFFFFF',
+        'surface-dim':            '#E0C8D4',
+        'surface-variant':        '#F5E8EF',
 
         // ── ON-COLORS ─────────────────────────────────────────────
-        'on-primary':           '#FFFFFF',
-        'on-primary-container': '#8E0038',
-        'on-secondary':         '#FFFFFF',
-        'on-secondary-container':'#082F3A',
-        'on-surface':           '#1A1A1A',
-        'on-surface-variant':   '#4A4A4A',
-        'on-background':        '#1A1A1A',
+        'on-primary':            '#FFFFFF',
+        'on-primary-container':  '#5E0F30',
+        'on-secondary':          '#FFFFFF',
+        'on-secondary-container':'#1A2330',
+        'on-surface':            '#1A1A1A',
+        'on-surface-variant':    '#4A4A4A',
+        'on-background':         '#1A1A1A',
 
         // ── SEMANTIC ──────────────────────────────────────────────
         error:              '#BA1A1A',
@@ -54,19 +57,19 @@ export default {
         'on-error-container':'#93000A',
 
         // ── OUTLINE ───────────────────────────────────────────────
-        outline:            '#9E7B87',
-        'outline-variant':  '#E8C8D4',
+        outline:            '#9A7A88',
+        'outline-variant':  '#E5C8D4',
 
         // ── INVERSE ───────────────────────────────────────────────
-        'inverse-surface':      '#2D1A20',
-        'inverse-on-surface':   '#FDEEF3',
-        'inverse-primary':      '#F8BBD0',
+        'inverse-surface':     '#2D1520',
+        'inverse-on-surface':  '#FDEEF4',
+        'inverse-primary':     '#E8B4C8',
 
-        // ── LEGACY ALIASES (keep for backward compat) ─────────────
-        tertiary:               '#C2185B',
-        'tertiary-container':   '#F8BBD0',
-        'on-tertiary':          '#FFFFFF',
-        'on-tertiary-container':'#8E0038',
+        // ── LEGACY ALIASES ────────────────────────────────────────
+        tertiary:              '#8B1A4A',
+        'tertiary-container':  '#E8B4C8',
+        'on-tertiary':         '#FFFFFF',
+        'on-tertiary-container':'#5E0F30',
 
         // ── SHADCN TOKENS ─────────────────────────────────────────
         border:      "hsl(var(--border))",
@@ -89,10 +92,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        ambient: '0 20px 40px rgba(194, 24, 91, 0.08)',
-        glass:   '0 4px 30px rgba(194, 24, 91, 0.06)',
-        primary: '0 8px 32px rgba(194, 24, 91, 0.25)',
-        secondary:'0 8px 32px rgba(15, 76, 92, 0.20)',
+        ambient:   '0 20px 40px rgba(139, 26, 74, 0.08)',
+        glass:     '0 4px 30px rgba(139, 26, 74, 0.06)',
+        primary:   '0 8px 32px rgba(139, 26, 74, 0.28)',
+        secondary: '0 8px 32px rgba(45, 58, 74, 0.22)',
       },
       backdropBlur: { glass: '20px' },
       keyframes: {

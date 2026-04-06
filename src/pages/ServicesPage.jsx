@@ -28,8 +28,8 @@ const STYLES = `
     transition: all 0.6s cubic-bezier(0.34,1.56,0.64,1);
   }
   .glass-card-premium:hover {
-    border-color: rgba(194,24,91,0.35);
-    box-shadow: 0 28px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(194,24,91,0.15);
+    border-color: rgba(139, 26, 74,0.35);
+    box-shadow: 0 28px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(139, 26, 74,0.15);
     transform: translateY(-7px);
   }
   .emergency-card { border-left: 3px solid #BA1A1A; }
@@ -158,8 +158,8 @@ export function ServicesPage() {
 
         {/* Ambient background */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-[#C2185B]/8 blur-[140px] opacity-50" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#0F4C5C]/8 blur-[160px] opacity-40" />
+          <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-[#8B1A4A]/8 blur-[140px] opacity-50" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#2D3A4A]/8 blur-[160px] opacity-40" />
         </div>
 
         <main className="relative z-10 max-w-[1440px] mx-auto px-8 pt-28 pb-32">
@@ -172,13 +172,13 @@ export function ServicesPage() {
               transition={{ delay: 0.3 }}
               className="relative w-full max-w-2xl group"
             >
-              <Search className="absolute left-7 top-1/2 -translate-y-1/2 text-[#C2185B]/50 group-hover:text-[#C2185B] transition-colors" size={20} />
+              <Search className="absolute left-7 top-1/2 -translate-y-1/2 text-[#8B1A4A]/50 group-hover:text-[#8B1A4A] transition-colors" size={20} />
               <input
                 type="text"
                 placeholder="Search services..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-[64px] bg-white/[0.04] border border-white/8 rounded-[22px] pl-16 pr-8 outline-none focus:border-[#C2185B]/40 text-lg font-medium transition-all text-center placeholder:text-white/25 text-white"
+                className="w-full h-[64px] bg-white/[0.04] border border-white/8 rounded-[22px] pl-16 pr-8 outline-none focus:border-[#8B1A4A]/40 text-lg font-medium transition-all text-center placeholder:text-white/25 text-white"
               />
             </motion.div>
 
@@ -194,8 +194,8 @@ export function ServicesPage() {
                   onClick={() => setActiveFilter(cat.id)}
                   className={`px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-300 border whitespace-nowrap ${
                     activeFilter === cat.id
-                      ? 'bg-[#C2185B] border-[#C2185B] text-white shadow-[0_4px_24px_rgba(194,24,91,0.35)] scale-105'
-                      : 'bg-white/[0.04] border-white/8 text-white/50 hover:border-[#C2185B]/30 hover:text-white'
+                      ? 'bg-[#8B1A4A] border-[#8B1A4A] text-white shadow-[0_4px_24px_rgba(139, 26, 74,0.35)] scale-105'
+                      : 'bg-white/[0.04] border-white/8 text-white/50 hover:border-[#8B1A4A]/30 hover:text-white'
                   }`}
                 >
                   {cat.label}
@@ -216,12 +216,12 @@ export function ServicesPage() {
                 >
                   <div className="flex flex-col gap-6 mb-16 px-2">
                     <div className="flex items-center gap-5">
-                      <div className={`w-6 h-6 rounded-lg flex items-center justify-center text-[10px] ${group === 'EMERGENCY' ? 'bg-[#BA1A1A]/10 border border-[#BA1A1A]/30 text-[#BA1A1A]' : 'bg-[#C2185B]/10 border border-[#C2185B]/20 text-[#C2185B]'}`}>⬡</div>
-                      <h2 className={`text-[11px] font-bold uppercase tracking-[0.3em] ${group === 'EMERGENCY' ? 'text-[#BA1A1A]' : 'text-[#C2185B]'}`}>
+                      <div className={`w-6 h-6 rounded-lg flex items-center justify-center text-[10px] ${group === 'EMERGENCY' ? 'bg-[#BA1A1A]/10 border border-[#BA1A1A]/30 text-[#BA1A1A]' : 'bg-[#8B1A4A]/10 border border-[#8B1A4A]/20 text-[#8B1A4A]'}`}>⬡</div>
+                      <h2 className={`text-[11px] font-bold uppercase tracking-[0.3em] ${group === 'EMERGENCY' ? 'text-[#BA1A1A]' : 'text-[#8B1A4A]'}`}>
                         {group === 'WOMEN_CHILD' ? 'MOTHER & CHILD' : `${group.replace('_', ' & ')} SERVICES`}
                       </h2>
                     </div>
-                    <div className={`h-px w-full ${group === 'EMERGENCY' ? 'bg-gradient-to-r from-[#BA1A1A]/30 to-transparent' : 'bg-[#C2185B]/10'}`} />
+                    <div className={`h-px w-full ${group === 'EMERGENCY' ? 'bg-gradient-to-r from-[#BA1A1A]/30 to-transparent' : 'bg-[#8B1A4A]/10'}`} />
                   </div>
 
                   <div className={`grid gap-5 ${group === 'EMERGENCY' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'}`}>
@@ -238,13 +238,13 @@ export function ServicesPage() {
                           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 relative overflow-hidden group-hover:scale-[1.1] border border-white/5 ${
                             service.urgent
                               ? 'bg-[#BA1A1A]/10 text-[#BA1A1A] group-hover:bg-[#BA1A1A] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(186,26,26,0.4)]'
-                              : 'bg-[#C2185B]/10 text-[#C2185B] group-hover:bg-[#C2185B] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(194,24,91,0.4)]'
+                              : 'bg-[#8B1A4A]/10 text-[#8B1A4A] group-hover:bg-[#8B1A4A] group-hover:text-white group-hover:shadow-[0_0_30px_rgba(139, 26, 74,0.4)]'
                           }`}>
                             <service.icon size={26} className={`relative z-10 ${service.urgent ? 'animate-pulse' : ''}`} />
                           </div>
                           <div className="flex flex-col items-end gap-2 text-[10px] font-bold uppercase tracking-widest">
                             {service.featured && (
-                              <span className="px-3 py-1.5 bg-[#C2185B]/10 text-[#C2185B] rounded-full border border-[#C2185B]/20">✦ Featured</span>
+                              <span className="px-3 py-1.5 bg-[#8B1A4A]/10 text-[#8B1A4A] rounded-full border border-[#8B1A4A]/20">✦ Featured</span>
                             )}
                             {service.urgent && (
                               <div className="flex items-center gap-2 px-3 py-1.5 bg-[#BA1A1A]/10 text-[#BA1A1A] rounded-full border border-[#BA1A1A]/30">
@@ -255,7 +255,7 @@ export function ServicesPage() {
                           </div>
                         </div>
 
-                        <h3 className="text-[17px] font-semibold text-white mb-4 tracking-tight group-hover:text-[#C2185B] transition-colors duration-300">
+                        <h3 className="text-[17px] font-semibold text-white mb-4 tracking-tight group-hover:text-[#8B1A4A] transition-colors duration-300">
                           {service.name}
                         </h3>
                         <p className="text-white/45 text-[13px] leading-[1.75] mb-10 group-hover:text-white/65 transition-colors duration-300">
@@ -269,7 +269,7 @@ export function ServicesPage() {
                           </div>
                           <button
                             onClick={() => navigate('/book')}
-                            className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#C2185B] flex items-center gap-2 group/btn"
+                            className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8B1A4A] flex items-center gap-2 group/btn"
                           >
                             Explore <ArrowRight size={14} className="opacity-0 -translate-x-3 transition-all duration-300 group-hover/btn:opacity-100 group-hover/btn:translate-x-0" />
                           </button>
@@ -305,21 +305,21 @@ export function ServicesPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <button
                   onClick={() => navigate('/book')}
-                  className="shimmer-btn h-[64px] px-14 bg-[#C2185B] text-white rounded-full font-bold uppercase tracking-[0.15em] text-[13px] shadow-[0_20px_50px_rgba(194,24,91,0.3)] hover:bg-[#0F4C5C] hover:shadow-[0_20px_50px_rgba(15,76,92,0.3)] transition-all duration-300"
+                  className="shimmer-btn h-[64px] px-14 bg-[#8B1A4A] text-white rounded-full font-bold uppercase tracking-[0.15em] text-[13px] shadow-[0_20px_50px_rgba(139, 26, 74,0.3)] hover:bg-[#2D3A4A] hover:shadow-[0_20px_50px_rgba(45, 58, 74,0.3)] transition-all duration-300"
                 >
                   Book an Appointment
                 </button>
                 <button
                   onClick={() => navigate('/doctors')}
-                  className="h-[64px] px-14 glass-card-premium rounded-full text-[#C2185B] font-bold uppercase tracking-[0.15em] text-[13px] border-[#C2185B]/30 hover:border-[#C2185B]/60 hover:bg-[#C2185B]/5 transition-all"
+                  className="h-[64px] px-14 glass-card-premium rounded-full text-[#8B1A4A] font-bold uppercase tracking-[0.15em] text-[13px] border-[#8B1A4A]/30 hover:border-[#8B1A4A]/60 hover:bg-[#8B1A4A]/5 transition-all"
                 >
                   Explore Our Doctors
                 </button>
               </div>
-              <div className="mt-20 flex flex-wrap justify-center gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-[#C2185B]/40">
-                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#C2185B] rounded-full" /> 500+ Specialists</span>
-                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#C2185B] rounded-full" /> 40+ Departments</span>
-                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#C2185B] rounded-full" /> NABH Accredited</span>
+              <div className="mt-20 flex flex-wrap justify-center gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-[#8B1A4A]/40">
+                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#8B1A4A] rounded-full" /> 500+ Specialists</span>
+                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#8B1A4A] rounded-full" /> 40+ Departments</span>
+                <span className="flex items-center gap-3"><div className="w-1 h-1 bg-[#8B1A4A] rounded-full" /> NABH Accredited</span>
               </div>
             </motion.div>
           </div>

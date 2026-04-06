@@ -13,8 +13,8 @@ const ABO_STYLES = `
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255,255,255,0.08);
   }
-  .brand-accent { color: #C2185B; }
-  .brand-accent-teal { color: #0F4C5C; }
+  .brand-accent { color: #8B1A4A; }
+  .brand-accent-teal { color: #2D3A4A; }
 `
 
 const STATS = [
@@ -50,13 +50,13 @@ export function AboutPage() {
         <style>{ABO_STYLES}</style>
       </Helmet>
 
-      <div className="min-h-screen bg-[#0D0A0C] text-white selection:bg-[#C2185B] selection:text-[#0D0A0C]">
+      <div className="min-h-screen bg-[#0D0A0C] text-white selection:bg-[#8B1A4A] selection:text-[#0D0A0C]">
         <StickyNavbar currentBranch={{ branchLogo: 'https://i.ibb.co/CK9bqmXK/sri-logo.jpg' }} />
 
         {/* Cinematic Hero */}
         <section className="relative pt-40 pb-32 overflow-hidden">
           <div className="absolute inset-0 z-0">
-             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#C2185B]/5 blur-[160px] rounded-full opacity-40" />
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#8B1A4A]/5 blur-[160px] rounded-full opacity-40" />
              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20" />
           </div>
 
@@ -66,7 +66,7 @@ export function AboutPage() {
                animate={{ opacity: 1, y: 0 }}
                className="flex flex-col items-center text-center"
             >
-               <span className="px-6 py-2 rounded-full border border-[#C2185B]/30 text-[#C2185B] text-[10px] font-black uppercase tracking-[0.4em] mb-10 bg-[#C2185B]/5">
+               <span className="px-6 py-2 rounded-full border border-[#8B1A4A]/30 text-[#8B1A4A] text-[10px] font-black uppercase tracking-[0.4em] mb-10 bg-[#8B1A4A]/5">
                  Established 2013
                </span>
                <h1 className="font-garamond text-6xl md:text-8xl font-bold mb-10 leading-[0.95] tracking-tight">
@@ -74,7 +74,7 @@ export function AboutPage() {
                  <br />
                  <span className="hero-gradient-text italic">Clinical Mastery</span>
                </h1>
-               <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#C2185B] to-transparent mb-12" />
+               <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#8B1A4A] to-transparent mb-12" />
                <p className="max-w-2xl text-white/50 text-xl font-medium leading-relaxed">
                  SRIKARA Hospitals is synonymous with quality, expertise, and innovation — blending global healthcare standards with compassionate, affordable care.
                </p>
@@ -93,13 +93,13 @@ export function AboutPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-surface rounded-3xl p-10 relative overflow-hidden group hover:border-[#C2185B]/40 transition-all duration-500"
+                  className="glass-surface rounded-3xl p-10 relative overflow-hidden group hover:border-[#8B1A4A]/40 transition-all duration-500"
                 >
                   <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                     <stat.icon size={60} />
                   </div>
                   <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">{stat.value}</h3>
-                  <p className="text-[#C2185B] text-[11px] font-bold uppercase tracking-[0.3em]">{stat.label}</p>
+                  <p className="text-[#8B1A4A] text-[11px] font-bold uppercase tracking-[0.3em]">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -115,14 +115,14 @@ export function AboutPage() {
                viewport={{ once: true }}
                className="relative"
              >
-                <div className="absolute inset-0 bg-[#C2185B]/10 blur-[100px] rounded-full scale-125" />
+                <div className="absolute inset-0 bg-[#8B1A4A]/10 blur-[100px] rounded-full scale-125" />
                 <img 
                   src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" 
                   alt="Modern Hospital Architecture" 
                   className="relative z-10 rounded-[40px] border border-white/10 shadow-2xl grayscale-[0.2] hover:grayscale-0 transition-all duration-1000"
                 />
-                <div className="absolute -bottom-10 -right-10 glass-surface p-10 rounded-3xl z-20 border-[#C2185B]/20">
-                   <p className="font-garamond text-3xl font-bold italic text-[#C2185B]">9 Strategic Units</p>
+                <div className="absolute -bottom-10 -right-10 glass-surface p-10 rounded-3xl z-20 border-[#8B1A4A]/20">
+                   <p className="font-garamond text-3xl font-bold italic text-[#8B1A4A]">9 Strategic Units</p>
                    <p className="text-[10px] uppercase font-black tracking-widest text-white/50 mt-2">Across AP & Telangana</p>
                 </div>
              </motion.div>
@@ -134,7 +134,7 @@ export function AboutPage() {
                className="space-y-10"
              >
                 <div className="space-y-4">
-                  <span className="text-[#C2185B] text-[11px] font-black uppercase tracking-[0.4em]">Our Reach</span>
+                  <span className="text-[#8B1A4A] text-[11px] font-black uppercase tracking-[0.4em]">Our Reach</span>
                   <h2 className="text-5xl font-garamond font-bold leading-tight">Strategically Located for <span className="brand-gradient-text italic">Absolute Access</span></h2>
                 </div>
                 <p className="text-white/50 text-lg leading-relaxed font-medium">
@@ -143,7 +143,7 @@ export function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    {CORE_VALUES.map((val) => (
                      <div key={val.title} className="space-y-3">
-                        <div className="flex items-center gap-3 text-[#C2185B]">
+                        <div className="flex items-center gap-3 text-[#8B1A4A]">
                            <val.icon size={20} />
                            <h4 className="font-bold text-[13px] uppercase tracking-widest">{val.title}</h4>
                         </div>
@@ -164,14 +164,14 @@ export function AboutPage() {
                viewport={{ once: true }}
                className="text-center"
              >
-                <Quote className="text-[#C2185B]/40 w-16 h-16 mx-auto mb-10" />
+                <Quote className="text-[#8B1A4A]/40 w-16 h-16 mx-auto mb-10" />
                 <h2 className="font-garamond text-5xl md:text-6xl font-bold leading-[1.2] mb-12">
                    "SRIKARA Multispeciality Hospitals is synonymous with quality, expertise, innovation, and international standards, offering a comprehensive spectrum of medical excellence under one roof."
                 </h2>
                 <div className="flex flex-col items-center">
-                   <span className="h-px w-20 bg-[#C2185B] mb-6" />
+                   <span className="h-px w-20 bg-[#8B1A4A] mb-6" />
                    <p className="text-2xl font-garamond font-bold text-white">Dr. Akhil Dadi</p>
-                   <p className="text-[10px] uppercase font-black tracking-[0.4em] text-[#C2185B] mt-2">Founder & Managing Director</p>
+                   <p className="text-[10px] uppercase font-black tracking-[0.4em] text-[#8B1A4A] mt-2">Founder & Managing Director</p>
                    <p className="text-[10px] text-white/50 uppercase tracking-widest mt-4">World Orthopaedic Concern Member</p>
                 </div>
              </motion.div>
@@ -188,37 +188,37 @@ export function AboutPage() {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                >
-                  <div className="absolute top-0 right-0 w-80 h-80 bg-[#C2185B]/5 blur-[100px] -mr-40 -mt-40 transition-all duration-1000 group-hover:bg-[#C2185B]/10" />
-                  <Star className="text-[#C2185B] w-12 h-12 mb-10" />
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-[#8B1A4A]/5 blur-[100px] -mr-40 -mt-40 transition-all duration-1000 group-hover:bg-[#8B1A4A]/10" />
+                  <Star className="text-[#8B1A4A] w-12 h-12 mb-10" />
                   <h3 className="text-4xl font-garamond font-bold mb-8">i-SUITE: The Future of Surgery</h3>
                   <p className="text-white/50 text-lg leading-relaxed mb-10">
                     We take pride in the first i-SUITE Operation Theatre in the state. Featuring four integrated modular operating rooms designed specifically for high-precision joint replacements and complex neurosurgeries, our infrastructure allows for zero-contamination environments and digital surgical navigation.
                   </p>
                   <div className="flex flex-wrap gap-10 border-t border-white/5 pt-10">
                      <div>
-                        <p className="text-3xl font-garamond font-bold text-[#C2185B]">30,000+</p>
+                        <p className="text-3xl font-garamond font-bold text-[#8B1A4A]">30,000+</p>
                         <p className="text-[9px] uppercase font-black text-white/30 tracking-[0.2em] mt-1">Joint Replacements</p>
                      </div>
                      <div>
-                        <p className="text-3xl font-garamond font-bold text-[#C2185B]">1,000+</p>
+                        <p className="text-3xl font-garamond font-bold text-[#8B1A4A]">1,000+</p>
                         <p className="text-[9px] uppercase font-black text-white/30 tracking-[0.2em] mt-1">Neuro Procedures</p>
                      </div>
                   </div>
                </motion.div>
 
                <motion.div 
-                 className="lg:col-span-5 bg-gradient-to-br from-[#0F4C5C] to-[#0F4C5C] rounded-[40px] p-16 border border-white/5 relative group overflow-hidden"
+                 className="lg:col-span-5 bg-gradient-to-br from-[#2D3A4A] to-[#2D3A4A] rounded-[40px] p-16 border border-white/5 relative group overflow-hidden"
                  initial={{ opacity: 0, y: 30 }}
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: 0.2 }}
                >
-                  <Globe className="text-[#C2185B] w-12 h-12 mb-10" />
+                  <Globe className="text-[#8B1A4A] w-12 h-12 mb-10" />
                   <h3 className="text-4xl font-garamond font-bold mb-8 italic">Global Concierge</h3>
                   <p className="text-white/50 text-lg leading-relaxed mb-12">
                     Our dedicated International Patient Cell manages overseas healthcare journeys, from visa assistance to personalized recovery suites, ensuring global proximity to clinical mastery.
                   </p>
-                  <button className="w-full h-16 rounded-full border border border-[#C2185B]/30 text-[#C2185B] font-bold uppercase tracking-widest text-[11px] hover:bg-[#C2185B] hover:text-[#0F4C5C] transition-all duration-500">
+                  <button className="w-full h-16 rounded-full border border border-[#8B1A4A]/30 text-[#8B1A4A] font-bold uppercase tracking-widest text-[11px] hover:bg-[#8B1A4A] hover:text-[#2D3A4A] transition-all duration-500">
                     International Desk
                   </button>
                </motion.div>
