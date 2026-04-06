@@ -1,0 +1,43 @@
+export const lakdikapul = {
+  slug: 'lakdikapul',
+  title: 'Lakdikapul',
+  subtitle: 'Neuro-Ortho Excellence Hub',
+  tagline: 'Specialized Neuro & Ortho Care',
+  heroHeadline: 'Where Neurology Meets',
+  heroHighlight: 'Orthopaedic Precision.',
+  description: 'A dedicated center for complex neurological and orthopaedic conditions, combining advanced diagnostics with minimally invasive surgical expertise.',
+  heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCsy4QyvBAKqMc5jm3QR4_8UqR5L8nBrBgSREo9VuccfjCP3HBJs0ziEeXOzXDxHo0B3FHdgZ94q_LEkHTkaduFMpK7zhxxI5IWdcvN-1EW4X966vG-PKPso_lzppnnHlGyDyIMsO28rwYH6wDicKFOGBFapr15cRMuWLdd7kHDCSeiZIIlZVlSJHQkqMo4S7-j0KlCMmDIP3hLCOb2cYxW_Hg7zw1YIrLHAd8sA7shqELw9iCyfi6M_vOzb255-_fJs3YgQtG8S1g',
+  heroStats: [
+    { value: '8K+', label: 'Neuro Procedures' },
+    { value: '98%', label: 'Success Rate' },
+  ],
+  doctor: {
+    name: 'Dr. Suresh Reddy',
+    title: 'Chief of Neurosciences & Spine',
+    surgeries: '8,000+',
+    experience: '18+',
+    successRate: '98%',
+    bio: 'Dr. Suresh Reddy is a nationally recognized neurosurgeon with 18 years of expertise in complex spine surgeries and brain tumor resections. His patient-first philosophy and precision-driven approach have transformed outcomes for thousands across Telangana.',
+    image: '/doctors/akhil-dadi.png',
+  },
+  specialtiesCards: [
+    { icon: '🧠', title: 'Neurosurgery', description: 'Brain tumor, epilepsy, and vascular neurosurgery with intraoperative imaging.' },
+    { icon: '🦴', title: 'Spine Surgery', description: 'Minimally invasive disc replacement and spinal fusion procedures.' },
+    { icon: '🦵', title: 'Joint Replacement', description: 'Robotic-assisted knee and hip replacements for lasting mobility.' },
+    { icon: '⚡', title: 'Neuro Rehab', description: 'Comprehensive rehabilitation for stroke, trauma, and post-surgical recovery.' },
+    { icon: '🔬', title: 'Diagnostics', description: 'Advanced MRI, EMG, and nerve conduction studies on-site.' },
+  ],
+  highlights: [
+    'Dedicated Neuro ICU with 24/7 monitoring',
+    'Intraoperative MRI for precision brain surgery',
+    'Multidisciplinary spine care team',
+  ],
+  infrastructure: [
+    { title: 'Neuro ICU', desc: 'State-of-the-art neurological intensive care with continuous EEG monitoring.', gradient: 'from-primary/90' },
+    { title: 'Advanced Imaging', desc: 'High-field MRI and CT angiography for accurate neurological diagnosis.', gradient: 'from-secondary/90' },
+  ],
+  address: 'Lakdikapul Main Road, Hyderabad, Telangana 500004',
+  phone: '040-68324803',
+  branchLogo: 'https://i.ibb.co/DBhtpSr/lakdikapul.jpg',
+  emergencyPhone: '040-68324803',
+}
