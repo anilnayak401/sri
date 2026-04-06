@@ -1,106 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Soft background -->
-  <circle cx="100" cy="100" r="100" fill="#F5EEF2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#F4EEF2"/>
 
   <!--
-    Srikara logo: 5 human figures in a pinwheel, each rotated 72°.
-    Each figure has:
-      • A sweeping body/arm path (burgundy #8B1A4A)
-      • A circular head (dark slate #2D3A4A)
-    Central starburst in white.
+    Srikara logo — 5 human figures in a clockwise pinwheel.
+
+    Each figure is a SINGLE rotated copy of the same shape:
+      • One long sweeping arm going far left (sharp tip)
+      • One shorter arm going upper-right (sharp tip)
+      • Body connecting both arms through the center
+      • Round head at the top
+
+    The key insight: each figure is tilted ~36° clockwise from the previous,
+    and the body shape itself is asymmetric — left arm is longer/lower,
+    right arm is shorter/higher — creating the spinning pinwheel.
+
+    All paths drawn relative to center (250,250).
   -->
 
-  <g transform="translate(100,100)">
+  <g transform="translate(250,250)">
 
-    <!-- ── FIGURE 1 ── 0° -->
+    <!--
+      Single figure shape (upright, 0°):
+        - Head at top-center
+        - Right arm sweeps up-right to sharp point
+        - Left arm sweeps far left to sharp point
+        - Body is the filled region between arms converging at origin
+    -->
+
+    <!-- Figure 1 — 0° -->
     <g transform="rotate(0)">
-      <!-- body: sweeps from center outward, curves like a dancing figure -->
+      <!-- Main body: left arm long sweep + right arm shorter sweep, meeting at origin -->
       <path d="
         M 0,0
-        C -8,-12 -18,-28 -24,-42
-        C -16,-50 -4,-48  4,-38
-        C 10,-28 10,-14  0,0 Z
+        C 5,-15  25,-35  15,-75
+        C 5,-80  -5,-78  -8,-68
+        C -12,-55 -5,-35  0,-20
+        C -5,-35  -30,-50  -55,-45
+        C -70,-42  -80,-30  -72,-18
+        C -62,-5   -35,0    0,0 Z
       " fill="#8B1A4A"/>
-      <!-- arm sweep going right -->
-      <path d="
-        M 0,0
-        C 6,-8 18,-10 28,-6
-        C 24,4 14,8  0,0 Z
-      " fill="#8B1A4A"/>
-      <!-- head -->
-      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+      <!-- Head -->
+      <circle cx="-2" cy="-88" r="18" fill="#2D3A4A"/>
     </g>
 
-    <!-- ── FIGURE 2 ── 72° -->
+    <!-- Figure 2 — 72° -->
     <g transform="rotate(72)">
       <path d="
         M 0,0
-        C -8,-12 -18,-28 -24,-42
-        C -16,-50 -4,-48  4,-38
-        C 10,-28 10,-14  0,0 Z
+        C 5,-15  25,-35  15,-75
+        C 5,-80  -5,-78  -8,-68
+        C -12,-55 -5,-35  0,-20
+        C -5,-35  -30,-50  -55,-45
+        C -70,-42  -80,-30  -72,-18
+        C -62,-5   -35,0    0,0 Z
       " fill="#8B1A4A"/>
-      <path d="
-        M 0,0
-        C 6,-8 18,-10 28,-6
-        C 24,4 14,8  0,0 Z
-      " fill="#8B1A4A"/>
-      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+      <circle cx="-2" cy="-88" r="18" fill="#2D3A4A"/>
     </g>
 
-    <!-- ── FIGURE 3 ── 144° -->
+    <!-- Figure 3 — 144° -->
     <g transform="rotate(144)">
       <path d="
         M 0,0
-        C -8,-12 -18,-28 -24,-42
-        C -16,-50 -4,-48  4,-38
-        C 10,-28 10,-14  0,0 Z
+        C 5,-15  25,-35  15,-75
+        C 5,-80  -5,-78  -8,-68
+        C -12,-55 -5,-35  0,-20
+        C -5,-35  -30,-50  -55,-45
+        C -70,-42  -80,-30  -72,-18
+        C -62,-5   -35,0    0,0 Z
       " fill="#8B1A4A"/>
-      <path d="
-        M 0,0
-        C 6,-8 18,-10 28,-6
-        C 24,4 14,8  0,0 Z
-      " fill="#8B1A4A"/>
-      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+      <circle cx="-2" cy="-88" r="18" fill="#2D3A4A"/>
     </g>
 
-    <!-- ── FIGURE 4 ── 216° -->
+    <!-- Figure 4 — 216° -->
     <g transform="rotate(216)">
       <path d="
         M 0,0
-        C -8,-12 -18,-28 -24,-42
-        C -16,-50 -4,-48  4,-38
-        C 10,-28 10,-14  0,0 Z
+        C 5,-15  25,-35  15,-75
+        C 5,-80  -5,-78  -8,-68
+        C -12,-55 -5,-35  0,-20
+        C -5,-35  -30,-50  -55,-45
+        C -70,-42  -80,-30  -72,-18
+        C -62,-5   -35,0    0,0 Z
       " fill="#8B1A4A"/>
-      <path d="
-        M 0,0
-        C 6,-8 18,-10 28,-6
-        C 24,4 14,8  0,0 Z
-      " fill="#8B1A4A"/>
-      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+      <circle cx="-2" cy="-88" r="18" fill="#2D3A4A"/>
     </g>
 
-    <!-- ── FIGURE 5 ── 288° -->
+    <!-- Figure 5 — 288° -->
     <g transform="rotate(288)">
       <path d="
         M 0,0
-        C -8,-12 -18,-28 -24,-42
-        C -16,-50 -4,-48  4,-38
-        C 10,-28 10,-14  0,0 Z
+        C 5,-15  25,-35  15,-75
+        C 5,-80  -5,-78  -8,-68
+        C -12,-55 -5,-35  0,-20
+        C -5,-35  -30,-50  -55,-45
+        C -70,-42  -80,-30  -72,-18
+        C -62,-5   -35,0    0,0 Z
       " fill="#8B1A4A"/>
-      <path d="
-        M 0,0
-        C 6,-8 18,-10 28,-6
-        C 24,4 14,8  0,0 Z
-      " fill="#8B1A4A"/>
-      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+      <circle cx="-2" cy="-88" r="18" fill="#2D3A4A"/>
     </g>
 
-    <!-- ── CENTRAL STARBURST ── -->
-    <!-- 10-point star, white, sits over the figure convergence -->
+    <!-- White starburst center — 10-point star -->
     <polygon
       points="
-        0,-18  4,-7  15,-7  7,0  10,12
-        0,6   -10,12 -7,0  -15,-7 -4,-7
+        0,-38   7,-22   24,-24   14,-10   24,4
+        8,4     10,22   0,14    -10,22  -8,4
+        -24,4  -14,-10  -24,-24  -7,-22
       "
       fill="white"
     />
