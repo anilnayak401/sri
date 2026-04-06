@@ -2,71 +2,31 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Loader2, Search, X } from 'lucide-react'
 
+// ── Data layer — all disease data and async helpers live here ──
+import { getByLetter, searchDiseases, ALL_DISEASES } from '@/data/diseases'
+
 /**
- * DiseaseSearchPanel
+ * AlphabetDiseaseSearch
  * ─────────────────────────────────────────────────────────────
  * 2-column layout:
- *   LEFT  — "Find by Alphabet" A–Z circular buttons
- *   RIGHT — "Search Diseases" text input with debounce
+ *   LEFT  — A–Z circular buttons  → calls getByLetter()
+ *   RIGHT — Search input          → calls searchDiseases()
+ *
+ * Both functions are defined in src/data/diseases.js.
+ * Swap their implementations for real API calls without touching
+ * this component at all.
  *
  * Features:
- *  • Alphabet click → lazy fetch, clears search input
- *  • Search typing  → debounced 300ms filter, clears active letter
- *  • Client-side Map cache — no repeated fetches
- *  • Skeleton loader while fetching
- *  • Fully responsive (mobile: search top, alphabet below)
+ *  • Alphabet click  → debounced 100ms, client-side Map cache
+ *  • Search typing   → debounced 300ms, separate Map cache
+ *  • Clicking letter clears search; typing clears active letter
+ *  • Skeleton loader, animated pills, empty + idle states
  *  • theme="light" | "dark"
  */
 
-// ─── Data ────────────────────────────────────────────────────
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
-const DISEASE_DATABASE = {
-  A: ['Appendicitis','Arthritis','Asthma','Atrial Fibrillation','Anemia','Alzheimer\'s Disease','Angina','Aortic Stenosis','Autism Spectrum Disorder','Acute Kidney Injury'],
-  B: ['Back Pain (Chronic)','Brain Tumor','Breast Cancer','Bronchitis','Bulging Disc','Burns','Bursitis','Blood Pressure (High)','Bone Fractures','Bladder Cancer'],
-  C: ['Cancer (General)','Cardiac Arrest','Carpal Tunnel','Cataracts','Celiac Disease','Cervical Cancer','Chronic Fatigue','COPD','Colorectal Cancer','Coronary Artery Disease'],
-  D: ['Dengue Fever','Depression','Diabetes Type 1','Diabetes Type 2','Dialysis','Disc Herniation','DVT (Deep Vein Thrombosis)','Dyslipidemia','Dysphagia','Dementia'],
-  E: ['Eczema','Endometriosis','Epilepsy','Esophageal Cancer','Eye Disorders','Ear Infections','Emphysema','Endocarditis','Erectile Dysfunction','Eating Disorders'],
-  F: ['Fatty Liver Disease','Fibromyalgia','Fractures','Frozen Shoulder','Fungal Infections','Fever (Typhoid)','Foot Drop','Fistula','Fibroids (Uterine)','Flu (Influenza)'],
-  G: ['Gallstones','Gastritis','GERD','Glaucoma','Gout','Guillain-Barré Syndrome','Gynecological Cancers','Gangrene','Gastroenteritis','Growth Disorders'],
-  H: ['Heart Attack','Heart Failure','Hepatitis A/B/C','Hernia','Hip Replacement','Hypertension','Hyperthyroidism','Hypothyroidism','HIV/AIDS','Hydrocephalus'],
-  I: ['Infertility','Inflammatory Bowel Disease','Insomnia','Interstitial Lung Disease','IVF Complications','Irritable Bowel Syndrome','Ischemic Stroke','Immune Disorders','Infections (Bacterial)','Intestinal Obstruction'],
-  J: ['Jaundice','Joint Replacement','Joint Infections','Juvenile Arthritis','Jaw Disorders (TMJ)'],
-  K: ['Kidney Cancer','Kidney Failure','Kidney Stones','Knee Replacement','Kyphosis'],
-  L: ['Leukemia','Liver Cancer','Liver Cirrhosis','Lung Cancer','Lupus','Lymphoma','Ligament Tears','Low Back Pain','Laryngeal Cancer','Leg Ulcers'],
-  M: ['Malaria','Meningitis','Migraine','Multiple Sclerosis','Myocardial Infarction','Menopause Disorders','Metabolic Syndrome','Muscular Dystrophy','Macular Degeneration','Mental Health Disorders'],
-  N: ['Neonatal Disorders','Nephritis','Nerve Damage','Neurological Disorders','Non-Hodgkin Lymphoma','Neuropathy','Nasal Polyps','Neck Pain','Nutritional Deficiencies','Narcolepsy'],
-  O: ['Obesity','Osteoarthritis','Osteoporosis','Ovarian Cancer','Ovarian Cysts','Oral Cancer','Orthopedic Injuries','Obstructive Sleep Apnea','Organ Failure','Otitis Media'],
-  P: ['Pancreatitis','Parkinson\'s Disease','PCOS','Peptic Ulcer','Peripheral Artery Disease','Pneumonia','Prostate Cancer','Psoriasis','Pulmonary Embolism','Pelvic Inflammatory Disease'],
-  Q: ['Quadriplegia','Q Fever'],
-  R: ['Renal Failure','Rheumatoid Arthritis','Rotator Cuff Tear','Retinal Detachment','Respiratory Failure','Rectal Cancer','Rhabdomyolysis','Rickets'],
-  S: ['Sepsis','Sickle Cell Disease','Sinusitis','Skin Cancer','Spinal Cord Injury','Spine Disorders','Stroke','Stomach Cancer','Stress Disorders','Sleep Disorders'],
-  T: ['Thyroid Cancer','Thyroid Disorders','Tonsillitis','Trauma Injuries','Tuberculosis','Tumors (Brain)','Type 2 Diabetes','Tendinitis','Testicular Cancer','Thalassemia'],
-  U: ['Ulcerative Colitis','Urinary Incontinence','Urinary Tract Infection','Uterine Cancer','Uterine Fibroids','Urological Disorders'],
-  V: ['Varicose Veins','Vascular Disorders','Vertigo','Viral Hepatitis','Vision Loss','Vitamin Deficiencies','Vocal Cord Disorders'],
-  W: ['Weight Disorders','Wound Infections','Wrist Fractures','Wilson\'s Disease'],
-  X: ['Xeroderma','X-linked Disorders'],
-  Y: ['Yellow Fever'],
-  Z: ['Zika Virus','Zinc Deficiency'],
-}
-
-// All diseases flat list for search
-const ALL_DISEASES = Object.values(DISEASE_DATABASE).flat()
-
-// Simulated async fetch by letter — swap for real API
-async function fetchByLetter(letter) {
-  await new Promise(r => setTimeout(r, 280))
-  return DISEASE_DATABASE[letter] || []
-}
-
-// Simulated async search — swap for real API
-async function fetchByQuery(query) {
-  await new Promise(r => setTimeout(r, 200))
-  const q = query.toLowerCase().trim()
-  return ALL_DISEASES.filter(d => d.toLowerCase().includes(q))
-}
-
-// ─── Skeleton ────────────────────────────────────────────────
+// ─── Skeleton placeholder ─────────────────────────────────────
 function Skeleton({ isDark }) {
   const widths = [120, 90, 150, 110, 80, 140, 100, 130]
   return (
@@ -82,13 +42,13 @@ function Skeleton({ isDark }) {
   )
 }
 
-// ─── Disease pill ─────────────────────────────────────────────
+// ─── Single disease pill ──────────────────────────────────────
 function DiseasePill({ name, isDark, index }) {
   return (
     <motion.span
       initial={{ opacity: 0, scale: 0.88 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.018, duration: 0.2 }}
+      transition={{ delay: index * 0.018, duration: 0.18 }}
       className={`
         disease-pill
         inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium
@@ -108,15 +68,13 @@ function DiseasePill({ name, isDark, index }) {
 export function AlphabetDiseaseSearch({ theme = 'light' }) {
   const isDark = theme === 'dark'
 
-  // State
-  const [activeLetter, setActiveLetter]   = useState(null)
-  const [searchQuery,  setSearchQuery]    = useState('')
-  const [diseases,     setDiseases]       = useState([])
-  const [loading,      setLoading]        = useState(false)
-  const [error,        setError]          = useState(null)
-  const [mode,         setMode]           = useState(null) // 'alpha' | 'search' | null
+  const [activeLetter, setActiveLetter] = useState(null)
+  const [searchQuery,  setSearchQuery]  = useState('')
+  const [diseases,     setDiseases]     = useState([])
+  const [loading,      setLoading]      = useState(false)
+  const [error,        setError]        = useState(null)
+  const [mode,         setMode]         = useState(null) // 'alpha' | 'search' | null
 
-  // Refs
   const letterCacheRef = useRef(new Map())
   const searchCacheRef = useRef(new Map())
   const letterDebounce = useRef(null)
@@ -124,20 +82,18 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
   const pendingRef     = useRef(null)
   const inputRef       = useRef(null)
 
-  // ── Cleanup ──
   useEffect(() => () => {
     clearTimeout(letterDebounce.current)
     clearTimeout(searchDebounce.current)
   }, [])
 
-  // ── Shared result setter ──
-  const setResults = useCallback((data) => {
+  const applyResults = useCallback((data) => {
     setDiseases(data)
     setLoading(false)
     setError(null)
   }, [])
 
-  // ── Letter click ──
+  // ── Letter click ──────────────────────────────────────────
   const handleLetterClick = useCallback((letter) => {
     clearTimeout(letterDebounce.current)
     clearTimeout(searchDebounce.current)
@@ -150,8 +106,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
       setMode('alpha')
       setError(null)
 
+      // Cache hit — instant
       if (letterCacheRef.current.has(letter)) {
-        setResults(letterCacheRef.current.get(letter))
+        applyResults(letterCacheRef.current.get(letter))
         return
       }
 
@@ -160,9 +117,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
       setDiseases([])
 
       try {
-        const data = await fetchByLetter(letter)
+        const data = await getByLetter(letter)          // ← from diseases.js
         letterCacheRef.current.set(letter, data)
-        if (pendingRef.current === `alpha:${letter}`) setResults(data)
+        if (pendingRef.current === `alpha:${letter}`) applyResults(data)
       } catch {
         if (pendingRef.current === `alpha:${letter}`) {
           setError('Failed to load. Please try again.')
@@ -170,9 +127,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
         }
       }
     }, 100)
-  }, [setResults])
+  }, [applyResults])
 
-  // ── Search input ──
+  // ── Search input ──────────────────────────────────────────
   const handleSearchChange = useCallback((e) => {
     const val = e.target.value
     setSearchQuery(val)
@@ -197,7 +154,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
       if (pendingRef.current === `search:${key}`) return
 
       if (searchCacheRef.current.has(key)) {
-        setResults(searchCacheRef.current.get(key))
+        applyResults(searchCacheRef.current.get(key))
         return
       }
 
@@ -206,9 +163,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
       setDiseases([])
 
       try {
-        const data = await fetchByQuery(val)
+        const data = await searchDiseases(val)          // ← from diseases.js
         searchCacheRef.current.set(key, data)
-        if (pendingRef.current === `search:${key}`) setResults(data)
+        if (pendingRef.current === `search:${key}`) applyResults(data)
       } catch {
         if (pendingRef.current === `search:${key}`) {
           setError('Search failed. Please try again.')
@@ -216,9 +173,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
         }
       }
     }, 300)
-  }, [setResults])
+  }, [applyResults])
 
-  // ── Clear all ──
+  // ── Clear ─────────────────────────────────────────────────
   const handleClear = useCallback(() => {
     clearTimeout(letterDebounce.current)
     clearTimeout(searchDebounce.current)
@@ -232,41 +189,40 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
     inputRef.current?.focus()
   }, [])
 
-  // ── Derived ──
+  // ── Derived ───────────────────────────────────────────────
   const hasResults  = diseases.length > 0
   const showResults = mode !== null
   const resultLabel = mode === 'alpha'
     ? `${diseases.length} condition${diseases.length !== 1 ? 's' : ''} under "${activeLetter}"`
     : `${diseases.length} result${diseases.length !== 1 ? 's' : ''} for "${searchQuery}"`
 
-  // ── Style tokens ──
+  // ── Style tokens ──────────────────────────────────────────
   const T = {
-    section:    isDark ? 'bg-white/[0.03] border border-white/8' : 'bg-white border border-[#E8B4C8]',
-    divider:    isDark ? 'border-white/10' : 'border-[#E8B4C8]',
-    title:      'text-[#8B1A4A]',
-    subtitle:   isDark ? 'text-white/45' : 'text-[#4A4A4A]',
-    inputWrap:  isDark
+    section:   isDark ? 'bg-white/[0.03] border border-white/8' : 'bg-white border border-[#E8B4C8]',
+    divider:   isDark ? 'border-white/10' : 'border-[#E8B4C8]',
+    colBorder: isDark ? 'border-t lg:border-t-0 lg:border-r border-white/8' : 'border-t lg:border-t-0 lg:border-r border-[#E8B4C8]',
+    title:     'text-[#8B1A4A]',
+    subtitle:  isDark ? 'text-white/45' : 'text-[#4A4A4A]',
+    inputWrap: isDark
       ? 'bg-white/5 border border-white/12 focus-within:border-[#8B1A4A]/60'
-      : 'bg-[#FDF6F9] border border-[#E8B4C8] focus-within:border-[#8B1A4A]',
-    input:      isDark
+      : 'bg-[#FBF5F8] border border-[#E8B4C8] focus-within:border-[#8B1A4A]',
+    input:     isDark
       ? 'bg-transparent text-white placeholder:text-white/30'
-      : 'bg-transparent text-[#1A1A1A] placeholder:text-[#9E7B87]',
-    resultBar:  isDark ? 'text-white/40' : 'text-[#9E7B87]',
-    emptyText:  isDark ? 'text-white/35' : 'text-[#9E7B87]',
+      : 'bg-transparent text-[#1A1A1A] placeholder:text-[#9A7A88]',
+    resultBar: isDark ? 'text-white/40' : 'text-[#9A7A88]',
+    emptyText: isDark ? 'text-white/35' : 'text-[#9A7A88]',
   }
 
   return (
     <div className="w-full">
-      {/* ── 2-column grid ── */}
       <div className={`disease-search-panel rounded-2xl overflow-hidden ${T.section}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
-          {/* ════════════════════════════════════════
+          {/* ══════════════════════════════════════
               LEFT — Alphabet filter
-          ════════════════════════════════════════ */}
-          <div className={`p-6 md:p-8 lg:order-1 order-2 ${isDark ? 'border-t lg:border-t-0 lg:border-r border-white/8' : 'border-t lg:border-t-0 lg:border-r border-[#E8B4C8]'}`}>
+          ══════════════════════════════════════ */}
+          <div className={`p-6 md:p-8 lg:order-1 order-2 ${T.colBorder}`}>
 
-            {/* Header */}
             <div className="mb-5">
               <h3 className={`font-headline text-lg font-extrabold tracking-tight ${T.title}`}>
                 Find by Alphabet
@@ -276,7 +232,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
               </p>
             </div>
 
-            {/* A–Z grid — 6 cols mobile → 7 tablet → 9 desktop */}
+            {/* A–Z grid: 6 cols mobile → 7 tablet → 9 desktop */}
             <div className="alpha-grid grid grid-cols-6 sm:grid-cols-7 lg:grid-cols-9 gap-1.5">
               {ALPHABET.map(letter => {
                 const isActive = activeLetter === letter
@@ -293,7 +249,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       transition-all duration-150 flex items-center justify-center mx-auto
                       focus:outline-none focus:ring-2 focus:ring-[#8B1A4A]/40 focus:ring-offset-1
                       ${isActive
-                        ? 'bg-[#8B1A4A] text-white shadow-[0_2px_10px_rgba(139, 26, 74,0.35)] scale-105'
+                        ? 'bg-[#8B1A4A] text-white shadow-[0_2px_10px_rgba(139,26,74,0.40)] scale-105'
                         : isDark
                           ? 'bg-white/5 text-white/50 border border-white/10 hover:bg-[#8B1A4A] hover:text-white hover:border-[#8B1A4A] hover:scale-105'
                           : 'bg-white text-[#8B1A4A] border border-[#E8B4C8] hover:bg-[#8B1A4A] hover:text-white hover:border-[#8B1A4A] hover:scale-105'
@@ -305,14 +261,18 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                 )
               })}
             </div>
+
+            {/* Total count hint */}
+            <p className={`text-[11px] mt-4 ${T.subtitle}`}>
+              {ALL_DISEASES.length}+ conditions across all specialties
+            </p>
           </div>
 
-          {/* ════════════════════════════════════════
-              RIGHT — Search input
-          ════════════════════════════════════════ */}
+          {/* ══════════════════════════════════════
+              RIGHT — Search + results
+          ══════════════════════════════════════ */}
           <div className="p-6 md:p-8 lg:order-2 order-1 flex flex-col">
 
-            {/* Header */}
             <div className="mb-5">
               <h3 className={`font-headline text-lg font-extrabold tracking-tight ${T.title}`}>
                 Search Diseases &amp; Conditions
@@ -322,7 +282,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
               </p>
             </div>
 
-            {/* Search input */}
+            {/* Input */}
             <div className={`search-input-wrap relative flex items-center rounded-xl transition-all duration-200 ${T.inputWrap}`}>
               <Search
                 size={17}
@@ -337,17 +297,15 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                 aria-label="Search diseases and conditions"
                 className={`w-full h-12 pl-11 pr-20 text-sm font-medium rounded-xl outline-none ${T.input}`}
               />
-              {/* Clear button */}
               {searchQuery && (
                 <button
                   onClick={handleClear}
                   aria-label="Clear search"
-                  className={`absolute right-14 p-1 rounded-full transition-colors ${isDark ? 'text-white/30 hover:text-white/70' : 'text-[#9E7B87] hover:text-[#8B1A4A]'}`}
+                  className={`absolute right-14 p-1 rounded-full transition-colors ${isDark ? 'text-white/30 hover:text-white/70' : 'text-[#9A7A88] hover:text-[#8B1A4A]'}`}
                 >
                   <X size={14} />
                 </button>
               )}
-              {/* Search button */}
               <button
                 aria-label="Submit search"
                 className="absolute right-2 h-8 w-10 rounded-lg bg-[#8B1A4A] flex items-center justify-center text-white hover:bg-[#2D3A4A] transition-colors duration-200 shadow-sm"
@@ -359,22 +317,18 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
               </button>
             </div>
 
-            {/* Hint text */}
             <p className={`text-[11px] mt-2.5 ${T.subtitle}`}>
               Results update as you type — no need to press enter
             </p>
 
-            {/* ── Results panel ── */}
+            {/* Results panel */}
             <div className="mt-5 flex-1 min-h-[120px]">
               <AnimatePresence mode="wait">
 
-                {/* Loading skeleton */}
+                {/* Loading */}
                 {loading && (
-                  <motion.div
-                    key="skeleton"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <motion.div key="skeleton"
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     transition={{ duration: 0.15 }}
                   >
                     <div className={`flex items-center gap-2 mb-3 ${T.resultBar}`}>
@@ -387,11 +341,8 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
 
                 {/* Error */}
                 {!loading && error && (
-                  <motion.p
-                    key="error"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <motion.p key="error"
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     className="text-sm text-red-400"
                   >
                     {error}
@@ -402,12 +353,9 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                 {!loading && !error && showResults && hasResults && (
                   <motion.div
                     key={`results-${activeLetter || searchQuery}`}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}
                   >
-                    {/* Result count bar */}
                     <div className={`flex items-center justify-between mb-3 pb-2.5 border-b ${T.divider}`}>
                       <span className={`text-xs font-semibold ${T.resultBar}`}>{resultLabel}</span>
                       <button
@@ -417,9 +365,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                         Clear
                       </button>
                     </div>
-
-                    {/* Pills */}
-                    <div className="flex flex-wrap gap-2 max-h-[200px] overflow-y-auto pr-1 custom-scrollbar">
+                    <div className="flex flex-wrap gap-2 max-h-[220px] overflow-y-auto pr-1 custom-scrollbar">
                       {diseases.map((name, i) => (
                         <DiseasePill key={name} name={name} isDark={isDark} index={i} />
                       ))}
@@ -427,13 +373,10 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                   </motion.div>
                 )}
 
-                {/* Empty state */}
+                {/* Empty */}
                 {!loading && !error && showResults && !hasResults && (
-                  <motion.div
-                    key="empty"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <motion.div key="empty"
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     className="flex flex-col items-center justify-center py-8 gap-2"
                   >
                     <span className="text-2xl">🔍</span>
@@ -444,13 +387,10 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                   </motion.div>
                 )}
 
-                {/* Idle prompt */}
+                {/* Idle */}
                 {!loading && !error && !showResults && (
-                  <motion.div
-                    key="idle"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <motion.div key="idle"
+                    initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     className="flex flex-col items-center justify-center py-8 gap-2 text-center"
                   >
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-1 ${isDark ? 'bg-white/5' : 'bg-[#F5D6E3]'}`}>
@@ -460,7 +400,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       Select a letter or type to search
                     </p>
                     <p className={`text-xs ${T.subtitle}`}>
-                      Browse 200+ conditions we treat
+                      Browse {ALL_DISEASES.length}+ conditions we treat
                     </p>
                   </motion.div>
                 )}
