@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Soft background -->
+  <circle cx="100" cy="100" r="100" fill="#F5EEF2"/>
+
+  <!--
+    Srikara logo: 5 human figures in a pinwheel, each rotated 72°.
+    Each figure has:
+      • A sweeping body/arm path (burgundy #8B1A4A)
+      • A circular head (dark slate #2D3A4A)
+    Central starburst in white.
+  -->
+
+  <g transform="translate(100,100)">
+
+    <!-- ── FIGURE 1 ── 0° -->
+    <g transform="rotate(0)">
+      <!-- body: sweeps from center outward, curves like a dancing figure -->
+      <path d="
+        M 0,0
+        C -8,-12 -18,-28 -24,-42
+        C -16,-50 -4,-48  4,-38
+        C 10,-28 10,-14  0,0 Z
+      " fill="#8B1A4A"/>
+      <!-- arm sweep going right -->
+      <path d="
+        M 0,0
+        C 6,-8 18,-10 28,-6
+        C 24,4 14,8  0,0 Z
+      " fill="#8B1A4A"/>
+      <!-- head -->
+      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+    </g>
+
+    <!-- ── FIGURE 2 ── 72° -->
+    <g transform="rotate(72)">
+      <path d="
+        M 0,0
+        C -8,-12 -18,-28 -24,-42
+        C -16,-50 -4,-48  4,-38
+        C 10,-28 10,-14  0,0 Z
+      " fill="#8B1A4A"/>
+      <path d="
+        M 0,0
+        C 6,-8 18,-10 28,-6
+        C 24,4 14,8  0,0 Z
+      " fill="#8B1A4A"/>
+      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+    </g>
+
+    <!-- ── FIGURE 3 ── 144° -->
+    <g transform="rotate(144)">
+      <path d="
+        M 0,0
+        C -8,-12 -18,-28 -24,-42
+        C -16,-50 -4,-48  4,-38
+        C 10,-28 10,-14  0,0 Z
+      " fill="#8B1A4A"/>
+      <path d="
+        M 0,0
+        C 6,-8 18,-10 28,-6
+        C 24,4 14,8  0,0 Z
+      " fill="#8B1A4A"/>
+      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+    </g>
+
+    <!-- ── FIGURE 4 ── 216° -->
+    <g transform="rotate(216)">
+      <path d="
+        M 0,0
+        C -8,-12 -18,-28 -24,-42
+        C -16,-50 -4,-48  4,-38
+        C 10,-28 10,-14  0,0 Z
+      " fill="#8B1A4A"/>
+      <path d="
+        M 0,0
+        C 6,-8 18,-10 28,-6
+        C 24,4 14,8  0,0 Z
+      " fill="#8B1A4A"/>
+      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+    </g>
+
+    <!-- ── FIGURE 5 ── 288° -->
+    <g transform="rotate(288)">
+      <path d="
+        M 0,0
+        C -8,-12 -18,-28 -24,-42
+        C -16,-50 -4,-48  4,-38
+        C 10,-28 10,-14  0,0 Z
+      " fill="#8B1A4A"/>
+      <path d="
+        M 0,0
+        C 6,-8 18,-10 28,-6
+        C 24,4 14,8  0,0 Z
+      " fill="#8B1A4A"/>
+      <ellipse cx="-22" cy="-48" rx="9" ry="9.5" fill="#2D3A4A"/>
+    </g>
+
+    <!-- ── CENTRAL STARBURST ── -->
+    <!-- 10-point star, white, sits over the figure convergence -->
+    <polygon
+      points="
+        0,-18  4,-7  15,-7  7,0  10,12
+        0,6   -10,12 -7,0  -15,-7 -4,-7
+      "
+      fill="white"
+    />
+
+  </g>
+</svg>
