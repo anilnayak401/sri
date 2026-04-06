@@ -258,7 +258,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
 
   return (
     <div className="w-full">
-      <div className={`disease-search-panel rounded-2xl overflow-hidden ${T.section}`}>
+      <div className={`disease-search-panel rounded-2xl ${T.section}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {/* LEFT — Alphabet */}
@@ -293,7 +293,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
           </div>
 
           {/* RIGHT — Search + results + detail */}
-          <div className="p-6 md:p-8 lg:order-2 order-1 flex flex-col">
+          <div className="p-6 md:p-8 lg:order-2 order-1">
             <div className="mb-5">
               <h3 className={`font-headline text-lg font-extrabold tracking-tight ${T.title}`}>Search Diseases &amp; Conditions</h3>
               <p className={`text-xs mt-1 ${T.subtitle}`}>Click any condition to see details</p>
@@ -323,7 +323,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
             <p className={`text-[11px] mt-2 mb-4 ${T.subtitle}`}>Results update as you type — click any pill for details</p>
 
             {/* Results */}
-            <div className="flex-1">
+            <div>
               <AnimatePresence mode="wait">
 
                 {loading && (
@@ -348,8 +348,8 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       <button onClick={handleClear} className={`text-[11px] font-bold hover:text-[#8B1A4A] transition-colors ${T.resultBar}`}>Clear</button>
                     </div>
 
-                    {/* Pills */}
-                    <div className="flex flex-wrap gap-2 max-h-[200px] overflow-y-auto pr-1 custom-scrollbar">
+                    {/* Pills — no overflow clipping so detail panel is visible */}
+                    <div className="flex flex-wrap gap-2 pr-1 custom-scrollbar">
                       {diseases.map((name, i) => (
                         <DiseasePill
                           key={name}
@@ -362,7 +362,7 @@ export function AlphabetDiseaseSearch({ theme = 'light' }) {
                       ))}
                     </div>
 
-                    {/* Detail panel — shown below pills when a pill is selected */}
+                    {/* Detail panel — outside overflow container, animates independently */}
                     <div ref={detailRef}>
                       <AnimatePresence mode="wait">
                         {selectedDisease && (
