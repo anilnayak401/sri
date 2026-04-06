@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 
 // Eagerly loaded (critical path)
@@ -29,7 +29,7 @@ function PageLoader() {
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Homepage → LB Nagar */}
@@ -61,7 +61,7 @@ function App() {
             <Route path="*" element={<PlaceholderPage title="Page Not Found" />} />
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      </HashRouter>
     </HelmetProvider>
   )
 }
